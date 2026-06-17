@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketalpha Blockade | Enterprise-Grade Browser Armor</title>
-    <meta name="description" content="Protect your proprietary trading workflows, data assets, and operational security with Blockade—the premier perimeter defense extension by Marketalpha.">
+    <title>Marketalpha Blockade | Block Site & Timed Site Access</title>
+    <meta name="description" content="Take control of your focus. Block distracting websites and configure smart, timed site access natively inside your browser.">
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -26,6 +27,7 @@
             }
         }
     </script>
+    <!-- Inter Font for Premium Typography Feel -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -35,130 +37,176 @@
         }
     </style>
 </head>
-<body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-brand-crimson selection:text-white">
+<body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-brand-crimson selection:text-white relative">
 
+    <!-- Global Staging Toast Notification Banner -->
+    <div id="staging-toast" class="fixed top-0 left-0 right-0 z-[100] transform -translate-y-full transition-transform duration-500 ease-out pointer-events-none">
+        <div class="max-w-md mx-auto mt-6 px-4">
+            <div class="bg-zinc-900 border-2 border-brand-crimson rounded-xl p-4 shadow-2xl shadow-brand-crimson/20 flex items-start space-x-3 pointer-events-auto">
+                <div class="p-1.5 bg-brand-crimson/10 rounded-lg text-brand-crimson flex-shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <div class="flex-1">
+                    <h4 class="text-sm font-semibold text-white">Store Release Staging Mode</h4>
+                    <p class="mt-1 text-xs text-zinc-400 leading-relaxed">
+                        Blockade is currently undergoing final Chrome Web Store review. This deployment link will activate instantly upon official release.
+                    </p>
+                </div>
+                <button onclick="closeToast()" class="text-zinc-500 hover:text-zinc-300 transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Form Success Notification Banner -->
+    <div id="success-toast" class="fixed top-0 left-0 right-0 z-[100] transform -translate-y-full transition-transform duration-500 ease-out pointer-events-none">
+        <div class="max-w-md mx-auto mt-6 px-4">
+            <div class="bg-zinc-900 border-2 border-emerald-600 rounded-xl p-4 shadow-2xl shadow-emerald-600/20 flex items-start space-x-3 pointer-events-auto">
+                <div class="p-1.5 bg-emerald-600/10 rounded-lg text-emerald-500 flex-shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <div class="flex-1">
+                    <h4 class="text-sm font-semibold text-white">Message Sent Successfully</h4>
+                    <p class="mt-1 text-xs text-zinc-400 leading-relaxed">
+                        Your support request was logged cleanly. The workspace environment will refresh momentarily.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Corporate Navigation Bar -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-zinc-950/80 border-b border-zinc-800/60 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logos (Left Side) -->
             <div class="flex items-center space-x-3">
+                <!-- MarketAlpha Logo Image Asset -->
+                <img src="MA Logo White.png" alt="Marketalpha Logo" class="h-6 w-6 object-contain block">
+                
                 <span class="text-lg font-bold tracking-tight text-white">
                     Marketalpha <span class="text-zinc-500 font-light mx-1">/</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-zinc-400">Blockade</span>
                 </span>
-                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-zinc-800 text-zinc-300 border border-zinc-700">v1.0 Ext</span>
             </div>
 
+            <!-- Desktop Navigation Links (Center) -->
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-zinc-400">
                 <a href="#features" class="hover:text-white transition-colors duration-200">Features</a>
                 <a href="#pricing" class="hover:text-white transition-colors duration-200">Pricing</a>
+                <a href="#support" class="hover:text-white transition-colors duration-200">Support</a>
                 <a href="#liability" class="hover:text-white transition-colors duration-200">Compliance</a>
             </nav>
 
-            <div class="flex items-center space-x-4">
-                <a href="#pricing" class="hidden sm:inline-flex text-sm font-medium text-zinc-300 hover:text-white transition-colors duration-200">
-                    Go Premium
-                </a>
-                <a href="#" class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-brand-crimson hover:bg-brand-crimsonHover rounded-lg shadow-lg shadow-brand-crimson/20 transition-all duration-200 active:scale-95">
+            <!-- Navigation CTA Container (Top Right Corner) -->
+            <div class="flex items-center">
+                <button onclick="triggerStagingAlert(event)" class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-brand-crimson hover:bg-brand-crimsonHover rounded-lg shadow-lg shadow-brand-crimson/20 transition-all duration-200 active:scale-95 cursor-pointer">
                     Add to Chrome
-                </a>
-                
-                <span class="h-6 w-px bg-zinc-800" aria-hidden="true"></span>
-
-                <div class="flex items-center justify-center h-9 w-9 rounded-lg bg-zinc-900 border border-zinc-800 text-brand-crimson shadow-inner" title="Marketalpha Certified Secure">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                    </svg>
-                </div>
+                </button>
             </div>
         </div>
     </header>
 
     <main>
+        <!-- Aggressive Conversion Hero Zone -->
         <section class="relative overflow-hidden pt-24 pb-20 lg:pt-32 lg:pb-28 border-b border-zinc-900">
+            <!-- Subtle Radial Gradient Background Polish -->
             <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-gradient-to-b from-brand-crimson/5 to-transparent blur-3xl pointer-events-none"></div>
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900 border border-zinc-800 text-xs font-medium text-zinc-300 mb-8 max-w-max mx-auto">
-                    <span class="flex h-2 w-2 relative">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-crimson opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-crimson"></span>
+                <!-- Custom Extension Product Badge Container -->
+                <div class="inline-flex items-center gap-4 px-5 py-3 rounded-full bg-zinc-900/90 border border-zinc-800 text-sm sm:text-base font-medium text-zinc-200 mb-10 max-w-max mx-auto shadow-2xl backdrop-blur-sm transition-all hover:border-zinc-700">
+                    <img src="BlockadeIcon.png" alt="Blockade Logo" class="h-6 w-6 sm:h-7 sm:w-7 object-contain rounded-md shadow-md">
+                    <span class="tracking-wide text-white font-medium">
+                        Blockade - Block Site & Timed Site Access
                     </span>
-                    Zero-Trust Browser Hardening Architecture Active
                 </div>
 
+                <!-- Primary Core Heading -->
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-4xl mx-auto leading-tight">
-                    Lock down your browser environment. Protect critical alpha.
+                    Take Control of Your Impulsive Browsing Habits.
                 </h1>
                 
                 <p class="mt-6 text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto font-light leading-relaxed">
-                    Blockade is Marketalpha's hyper-secure browser extension designed to eliminate client-side telemetry, mitigate script-injection attacks, and sandbox trading execution environments.
+                    Blockade breaks scrolling loops by adding intentional time allocation boundaries. Block distracting domains, customize short break intervals, and track your focus analytics locally.
                 </p>
 
-                <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-brand-crimson hover:bg-brand-crimsonHover rounded-xl shadow-xl shadow-brand-crimson/20 transition-all duration-200 transform hover:-translate-y-0.5 active:scale-95">
+                <!-- Action Button Grouping -->
+                <div class="mt-10 flex items-center justify-center">
+                    <button onclick="triggerStagingAlert(event)" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-brand-crimson hover:bg-brand-crimsonHover rounded-xl shadow-xl shadow-brand-crimson/20 transition-all duration-200 transform hover:-translate-y-0.5 active:scale-95 cursor-pointer">
                         <svg class="w-5 h-5 mr-2.5" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 17.18c-2.86 0-5.18-2.32-5.18-5.18S9.14 6.82 12 6.82s5.18 2.32 5.18 5.18-2.32 5.18-5.18 5.18z"/>
                             <path d="M12 8.73c-1.81 0-3.27 1.46-3.27 3.27s1.46 3.27 3.27 3.27 3.27-1.46 3.27-3.27-1.46-3.27-3.27-3.27z"/>
                         </svg>
                         Add to Chrome (Free)
-                    </a>
-                    <a href="#features" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-zinc-300 hover:text-white bg-zinc-900 hover:bg-zinc-850 border border-zinc-800 rounded-xl transition-all duration-200">
-                        View System Specs
-                    </a>
+                    </button>
                 </div>
 
+                <!-- Trusted/Endorsed Metadata Elements -->
                 <div class="mt-16 pt-8 border-t border-zinc-900 max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-3 gap-6 text-zinc-500 text-sm">
                     <div>
-                        <span class="block text-white text-lg font-semibold">Sub-10ms</span> Latency Overhead
+                        <span class="block text-white text-lg font-semibold">Strict</span> Website Blocking
                     </div>
                     <div>
-                        <span class="block text-white text-lg font-semibold">AES-256</span> Local Encryption
+                        <span class="block text-white text-lg font-semibold">Timed</span> Site Access
                     </div>
                     <div class="col-span-2 sm:col-span-1">
-                        <span class="block text-white text-lg font-semibold">100% Zero-Log</span> Architecture
+                        <span class="block text-white text-lg font-semibold">100% Local</span> Rule Storage
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- 3-Column Features Showcase -->
         <section id="features" class="py-20 lg:py-24 border-b border-zinc-900 bg-zinc-950">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Engineered for Operational Absolute Security</h2>
-                    <p class="mt-4 text-zinc-400 font-light">Defend against advanced browser threats, credential harvesting scripts, and competitive intelligence tracking injections natively.</p>
+                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Engineered for Absolute Productivity Control</h2>
+                    <p class="mt-4 text-zinc-400 font-light">Defend your focus windows against addictive algorithms, impulse browsing cycles, and continuous attention fragmentation.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Feature Card 1 -->
                     <div class="p-8 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 hover:border-zinc-700 transition-all duration-200 flex flex-col justify-between">
                         <div>
-                            <div class="h-12 w-12 rounded-xl bg-zinc-900 border border-zinc-700 flex items-center justify-center text-zinc-300 mb-6">
+                            <!-- Crimson Support-Style Icon Container -->
+                            <div class="h-12 w-12 rounded-xl bg-brand-crimson/10 text-brand-crimson flex items-center justify-center mb-6 shadow-inner">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                             </div>
-                            <h3 class="text-xl font-semibold text-white tracking-tight">Granular Script Sandboxing</h3>
+                            <h3 class="text-xl font-semibold text-white tracking-tight">Strict Domain Blockades</h3>
                             <p class="mt-3 text-zinc-400 text-sm leading-relaxed font-light">
-                                Blockade isolates DOM rendering pipelines to ensure tracking pixels and rogue scripts are completely blind to transactional inputs and portfolio updates.
+                                Block any distracting domain, subdomain, or custom wildcard path instantly. Your custom blocklist is stored securely right inside your browser configuration.
                             </p>
                         </div>
                     </div>
 
+                    <!-- Feature Card 2 -->
                     <div class="p-8 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 hover:border-zinc-700 transition-all duration-200 flex flex-col justify-between">
                         <div>
-                            <div class="h-12 w-12 rounded-xl bg-zinc-900 border border-zinc-700 flex items-center justify-center text-zinc-300 mb-6">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            <!-- Crimson Support-Style Icon Container -->
+                            <div class="h-12 w-12 rounded-xl bg-brand-crimson/10 text-brand-crimson flex items-center justify-center mb-6 shadow-inner">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             </div>
-                            <h3 class="text-xl font-semibold text-white tracking-tight">Anti-Heuristics Profiling</h3>
+                            <h3 class="text-xl font-semibold text-white tracking-tight">Timed Site Access</h3>
                             <p class="mt-3 text-zinc-400 text-sm leading-relaxed font-light">
-                                Scrambles browser fingerprint variables dynamic-runtime variables seamlessly, rendering your corporate workflows completely untrackable to third-party data aggregators.
+                                Need to check a site briefly? Request a configured access window. Once your custom countdown timer hits zero, Blockade locks the page back down automatically.
                             </p>
                         </div>
                     </div>
 
+                    <!-- Feature Card 3 -->
                     <div class="p-8 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 hover:border-zinc-700 transition-all duration-200 flex flex-col justify-between">
                         <div>
-                            <div class="h-12 w-12 rounded-xl bg-zinc-900 border border-zinc-700 flex items-center justify-center text-zinc-300 mb-6">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            <!-- Crimson Support-Style Icon Container -->
+                            <div class="h-12 w-12 rounded-xl bg-brand-crimson/10 text-brand-crimson flex items-center justify-center mb-6 shadow-inner">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                             </div>
-                            <h3 class="text-xl font-semibold text-white tracking-tight">Real-Time Threat Lockdown</h3>
+                            <h3 class="text-xl font-semibold text-white tracking-tight">Live Focus Analytics Log</h3>
                             <p class="mt-3 text-zinc-400 text-sm leading-relaxed font-light">
-                                Automatically triggers full session containment protocol upon detecting memory injection attempts or unauthorized network requests.
+                                Review a chronological activity history log and visual counters that track the hours you've saved over time — all computed and stored locally.
                             </p>
                         </div>
                     </div>
@@ -166,61 +214,62 @@
             </div>
         </section>
 
+        <!-- Premium 3-Column Pricing Matrix Grid -->
         <section id="pricing" class="py-20 lg:py-24 border-b border-zinc-900 bg-zinc-950/40">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Heading -->
                 <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Transparent Framework. Tiered Hardening.</h2>
-                    <p class="mt-4 text-zinc-400 font-light">Start immediately with essential base protections, or secure lifetime tactical deployment capabilities with a one-time upgrade.</p>
+                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Make Time for What Matters</h2>
+                    <p class="mt-4 text-zinc-400 font-light">Upgrade for deeper focus, fewer distractions, and a customized experience.</p>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+                    <!-- Option 1: Blockade Free Pass -->
                     <div class="p-8 rounded-2xl bg-zinc-900/30 border border-zinc-850 flex flex-col justify-between relative">
                         <div>
                             <div class="mb-6">
-                                <h3 class="text-xl font-semibold text-white">Blockade Core</h3>
-                                <p class="mt-2 text-zinc-400 text-sm font-light">Essential defense mechanics for retail operators.</p>
+                                <h3 class="text-xl font-semibold text-white">Blockade Free Pass</h3>
+                                <p class="mt-2 text-zinc-400 text-sm font-light">Essential baseline focus tracking limits.</p>
                             </div>
                             <div class="my-6 flex items-baseline">
                                 <span class="text-4xl font-extrabold tracking-tight text-white">$0</span>
-                                <span class="ml-2 text-sm text-zinc-500 font-medium">forever</span>
+                                <span class="ml-2 text-sm text-zinc-500 font-medium">Life Time Free</span>
                             </div>
                             
                             <hr class="border-zinc-800 my-6">
 
                             <ul class="space-y-4 text-sm text-zinc-300">
                                 <li class="flex items-center">
-                                    <svg class="w-4 h-4 text-zinc-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    Standard telemetry shielding
+                                    <svg class="w-4 h-4 text-brand-crimson mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Block exactly one website for life
                                 </li>
                                 <li class="flex items-center">
-                                    <svg class="w-4 h-4 text-zinc-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    Cross-site script blacklisting
+                                    <svg class="w-4 h-4 text-brand-crimson mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Fixed 2-minute temporary access pass
                                 </li>
-                                <li class="flex items-center">
-                                    <svg class="w-4 h-4 text-zinc-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    Automatic localized manifest updates
+                                <li class="flex items-center text-zinc-600">
+                                    <svg class="w-4 h-4 text-zinc-800 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                    No historical analytics logs
                                 </li>
                             </ul>
                         </div>
                         <div class="mt-8">
-                            <a href="#" class="w-full inline-flex items-center justify-center px-4 py-3 text-sm font-semibold text-zinc-300 hover:text-white bg-zinc-900 hover:bg-zinc-850 border border-zinc-800 rounded-xl transition-all duration-200">
-                                Deploy Base Core
-                            </a>
+                            <button onclick="triggerStagingAlert(event)" class="w-full inline-flex items-center justify-center px-4 py-3 text-sm font-semibold text-zinc-300 hover:text-white bg-zinc-900 hover:bg-zinc-850 border border-zinc-800 rounded-xl transition-all duration-200 cursor-pointer">
+                                Get Started Free
+                            </button>
                         </div>
                     </div>
 
-                    <div class="p-8 rounded-2xl bg-zinc-900 border-2 border-brand-crimson flex flex-col justify-between relative shadow-2xl shadow-brand-crimson/5">
-                        <div class="absolute -top-3.5 right-6 inline-flex items-center px-3 py-0.5 rounded-full text-xs font-semibold bg-brand-crimson text-white tracking-wide uppercase">
-                            Recommended Protection
-                        </div>
+                    <!-- Option 2: Blockade Annual Pass -->
+                    <div class="p-8 rounded-2xl bg-zinc-900/60 border border-zinc-800 flex flex-col justify-between relative">
                         <div>
                             <div class="mb-6">
-                                <h3 class="text-xl font-semibold text-white">Blockade Professional</h3>
-                                <p class="mt-2 text-zinc-400 text-sm font-light">Military-grade mitigation metrics for serious capital allocators.</p>
+                                <h3 class="text-xl font-semibold text-white">Blockade Annual Pass</h3>
+                                <p class="mt-2 text-zinc-400 text-sm font-light">Flexible distraction containment framework.</p>
                             </div>
                             <div class="my-6 flex items-baseline">
-                                <span class="text-4xl font-extrabold tracking-tight text-white">$4.99</span>
-                                <span class="ml-2 text-sm text-zinc-400 font-medium">one-time payment</span>
+                                <span class="text-4xl font-extrabold tracking-tight text-white">$5</span>
+                                <span class="ml-2 text-sm text-zinc-400 font-medium">/ year billed annually</span>
                             </div>
                             
                             <hr class="border-zinc-800 my-6">
@@ -228,34 +277,121 @@
                             <ul class="space-y-4 text-sm text-zinc-200">
                                 <li class="flex items-center">
                                     <svg class="w-4 h-4 text-brand-crimson mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    <span>Everything included in <strong>Core</strong></span>
+                                    Unlimited website blockades
                                 </li>
                                 <li class="flex items-center">
                                     <svg class="w-4 h-4 text-brand-crimson mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    Real-time anti-heuristics profiling engine
+                                    Unlimited customizable timed access
                                 </li>
                                 <li class="flex items-center">
                                     <svg class="w-4 h-4 text-brand-crimson mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    Advanced multi-process script sandboxing
-                                </li>
-                                <li class="flex items-center">
-                                    <svg class="w-4 h-4 text-brand-crimson mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    Priority priority node relays
+                                    Full focus analytics history log
                                 </li>
                             </ul>
                         </div>
                         <div class="mt-8">
-                            <a href="#" class="w-full inline-flex items-center justify-center px-4 py-3 text-sm font-semibold text-white bg-brand-crimson hover:bg-brand-crimsonHover rounded-xl shadow-lg shadow-brand-crimson/20 transition-all duration-200 transform hover:-translate-y-0.5">
-                                Upgrade to Professional
-                            </a>
+                            <button onclick="triggerStagingAlert(event)" class="w-full inline-flex items-center justify-center px-4 py-3 text-sm font-semibold text-zinc-200 hover:text-white bg-zinc-850 hover:bg-zinc-800 border border-zinc-700 rounded-xl transition-all duration-200 cursor-pointer">
+                                Subscribe Annually
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Option 3: Blockade Lifetime Pass -->
+                    <div class="p-8 rounded-2xl bg-zinc-900 border-2 border-brand-crimson flex flex-col justify-between relative shadow-2xl shadow-brand-crimson/5">
+                        <div class="absolute -top-3.5 right-6 inline-flex items-center px-3 py-0.5 rounded-full text-xs font-semibold bg-brand-crimson text-white tracking-wide uppercase">
+                            Ultimate Value
+                        </div>
+                        <div>
+                            <div class="mb-6">
+                                <h3 class="text-xl font-semibold text-white">Blockade Lifetime Pass</h3>
+                                <p class="mt-2 text-zinc-400 text-sm font-light">Permanent configuration armor for deep focus.</p>
+                            </div>
+                            <div class="my-6 flex items-baseline">
+                                <span class="text-4xl font-extrabold tracking-tight text-white">$8</span>
+                                <span class="ml-2 text-sm text-zinc-400 font-medium">one time fee</span>
+                            </div>
+                            
+                            <hr class="border-zinc-800 my-6">
+
+                            <ul class="space-y-4 text-sm text-zinc-200">
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-brand-crimson mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>All Pro features included permanently</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-brand-crimson mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Unlimited blocking & customizable timers
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-brand-crimson mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    All future functional upgrades included
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-8">
+                            <button onclick="triggerStagingAlert(event)" class="w-full inline-flex items-center justify-center px-4 py-3 text-sm font-semibold text-white bg-brand-crimson hover:bg-brand-crimsonHover rounded-xl shadow-lg shadow-brand-crimson/20 transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer">
+                                Buy Lifetime Absolute
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Direct Support Inbox Section -->
+        <section id="support" class="py-16 bg-zinc-950 border-b border-zinc-900">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8 backdrop-blur-sm shadow-xl">
+                    <div class="flex flex-col sm:flex-row gap-6 items-start">
+                        <div class="p-3 bg-brand-crimson/10 rounded-xl text-brand-crimson flex-shrink-0 mx-auto sm:mx-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7 8.9c.4.5 1.2.5 1.6 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1 w-full">
+                            <h3 class="text-xl font-semibold text-white tracking-tight text-center sm:text-left">Direct Support Inbox</h3>
+                            <p class="mt-2 text-sm text-zinc-400 font-light leading-relaxed text-center sm:text-left">
+                                Have a capability inquiry, feature recommendation, or need troubleshooting support? Send a description directly to my developer account inbox.
+                            </p>
+
+                            <!-- AJAX-Powered Form Connection Linked directly to Formspree token -->
+                            <form id="support-form" action="https://formspree.io/f/mpqeewal" method="POST" class="mt-6 space-y-4">
+                                <div>
+                                    <label for="email" class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Your Email</label>
+                                    <input type="email" name="email" id="email" required class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-700 focus:outline-none focus:border-brand-crimson transition-colors" placeholder="you@example.com">
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Message Description</label>
+                                    <textarea id="message" name="message" rows="4" required class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-700 focus:outline-none focus:border-brand-crimson transition-colors resize-none" placeholder="Explain your browser configuration scenario or feature requests here..."></textarea>
+                                </div>
+                                <button type="submit" id="form-submit-btn" class="w-full inline-flex items-center justify-center px-5 py-3 text-sm font-semibold text-white bg-brand-crimson hover:bg-brand-crimsonHover rounded-xl shadow-lg shadow-brand-crimson/20 transition-all cursor-pointer disabled:opacity-50">
+                                    Send Support Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compliance & Legal Zone -->
         <section id="liability" class="py-16 bg-zinc-950">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Privacy and Terms Links Positioned Directly Above the Disclaimer Box -->
+                <div class="mb-6 p-4 bg-zinc-900/30 rounded-xl border border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-y-3 px-6 shadow-inner">
+                    <div class="flex items-center space-x-2">
+                        <span class="inline-block w-1.5 h-1.5 rounded-full bg-brand-crimson animate-pulse"></span>
+                        <span class="text-xs font-semibold text-zinc-400 uppercase tracking-wider text-[10px]">Extension Legal Protocols</span>
+                    </div>
+                    <div class="flex items-center space-x-6 text-sm">
+                        <a href="privacy.html" class="text-zinc-300 hover:text-brand-crimson font-medium underline decoration-zinc-800 hover:decoration-brand-crimson underline-offset-4 transition-colors">Privacy Pass Protocol</a>
+                        <span class="text-zinc-800 text-xs">|</span>
+                        <a href="terms.html" class="text-zinc-300 hover:text-brand-crimson font-medium underline decoration-zinc-800 hover:decoration-brand-crimson underline-offset-4 transition-colors">Terms of Operation</a>
+                    </div>
+                </div>
+
+                <!-- Amber/Red Outlined System Liability Notice Callout Box -->
                 <div class="rounded-xl border border-amber-600/40 bg-zinc-900/50 p-6 sm:p-8 backdrop-blur-sm">
                     <div class="flex flex-col sm:flex-row gap-4 items-start">
                         <div class="p-2 bg-amber-600/10 rounded-lg text-amber-500 border border-amber-500/20 flex-shrink-0">
@@ -268,7 +404,7 @@
                                 Regulatory Compliance & System Liability Disclaimer
                             </h3>
                             <p class="mt-2 text-xs sm:text-sm text-zinc-400 font-light leading-relaxed">
-                                Marketalpha Blockade acts as a localized barrier defense framework operating on client-side environments. While Blockade blocks malicious vectors and intercepts client tracking parameters, execution security remains a shared environment responsibility model. Marketalpha assumes absolute zero financial or architectural liability for asset slippages, external endpoint security compromises, or algorithmic errors executing concurrently inside non-hardened nodes. Users are advised to test internal scripts inside non-production sandboxes prior to deploying real-time system changes.
+                                Marketalpha Blockade acts as a localized barrier framework operating exclusively within client-side environments. While Blockade provides advanced filtering variables to prevent distracting requests and intercept targeted endpoints, filter execution parameters depend directly on user configurations. Marketalpha assumes absolute zero operational or procedural liability for lost productivity metrics, user override habits, browser configuration corruptions, or internal workflow modifications. Users are responsible for structuring rules in alignment with corporate compliance parameters.
                             </p>
                         </div>
                     </div>
@@ -277,6 +413,7 @@
         </section>
     </main>
 
+    <!-- Professional Footer -->
     <footer class="border-t border-zinc-900 bg-zinc-950 text-zinc-500 text-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div class="flex items-center space-x-2">
@@ -285,13 +422,74 @@
                 <span>© 2026 Marketalpha Technologies Inc. All structural rights reserved.</span>
             </div>
             
-            <div class="flex items-center space-x-6">
-                <a href="#" class="hover:text-zinc-300 transition-colors duration-200">Privacy Protocol</a>
-                <a href="#" class="hover:text-zinc-300 transition-colors duration-200">Terms of Operation</a>
-                <a href="#" class="hover:text-zinc-300 transition-colors duration-200">Security Disclosures</a>
+            <!-- Global Footer Links Remain Clear for Next Product Onboarding -->
+            <div class="flex items-center space-x-6 text-zinc-600">
+                <span>Enterprise Framework Utilities</span>
             </div>
         </div>
     </footer>
+
+    <!-- Micro-Interaction Staging Script Elements -->
+    <script>
+        let toastTimeout;
+        
+        function triggerStagingAlert(event) {
+            event.preventDefault();
+            const toast = document.getElementById('staging-toast');
+            
+            toast.classList.remove('-translate-y-full');
+            clearTimeout(toastTimeout);
+            
+            toastTimeout = setTimeout(() => {
+                closeToast();
+            }, 7000);
+        }
+
+        function closeToast() {
+            const toast = document.getElementById('staging-toast');
+            toast.classList.add('-translate-y-full');
+        }
+
+        // Handle Support Form Background Interception Natively (AJAX)
+        const form = document.getElementById('support-form');
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Lock default Formspree new-tab redirect layout
+            
+            const btn = document.getElementById('form-submit-btn');
+            const data = new FormData(event.target);
+            
+            btn.disabled = true;
+            btn.innerText = "Transmitting Message...";
+
+            try {
+                const response = await fetch(event.target.action, {
+                    method: form.method,
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    // Activate modern custom success alert container down smoothly
+                    const successToast = document.getElementById('success-toast');
+                    successToast.classList.remove('-translate-y-full');
+                    form.reset();
+
+                    // Automatically refresh workspace viewport after 3.5 seconds
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 3500);
+                } else {
+                    alert("Submission configuration anomaly. Verify fields and retry.");
+                    btn.disabled = false;
+                    btn.innerText = "Send Support Message";
+                }
+            } catch (error) {
+                alert("Network operational failure. Please verify active server link.");
+                btn.disabled = false;
+                btn.innerText = "Send Support Message";
+            }
+        });
+    </script>
 
 </body>
 </html>
