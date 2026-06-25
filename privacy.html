@@ -22,7 +22,6 @@
     <!-- Simple Nav Header -->
     <header class="border-b border-zinc-800/60 bg-zinc-950/80 sticky top-0 backdrop-blur-md z-50">
         <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-            <!-- Updated direct anchor back-link -->
             <a href="index.html#liability" class="text-sm font-semibold tracking-tight hover:text-zinc-300 transition-colors flex items-center gap-2">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                 Back to Blockade
@@ -47,21 +46,29 @@
             <section>
                 <h2 class="text-xl font-semibold text-white tracking-tight mb-3">1. 100% Local Data Rule (Zero Logs)</h2>
                 <p>
-                    Blockade is engineered with a strict **zero-server infrastructure**. Your website blocklists, your custom timed access logs, and your hours-saved dashboard analytics are processed right inside your browser extension container. I do not own, lease, or operate any databases that store your data, meaning your browsing habits never leave your local machine.
+                    Blockade is engineered with a strict **zero-server infrastructure**. Your manually configured domain blocklists, active bypass timer timestamps, and configuration preferences are processed and stored exclusively inside your browser memory container using <code class="text-xs text-brand-crimson bg-zinc-900 px-1.5 py-0.5 rounded font-mono">chrome.storage.local</code>. I do not own, lease, or operate external cloud databases that capture your data, meaning your browsing habits never leave your local machine.
                 </p>
             </section>
 
             <section>
-                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">2. Payments & Licensing</h2>
+                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">2. Payments & Licensing Status</h2>
                 <p>
-                    When you purchase an Annual Pass or a Lifetime Pass, the financial transaction is handled completely securely by **Lemon Squeezy** (my merchant of record). They handle your credit card processing, and they only pass me a secure, random cryptographic string representing your active premium license key. I do not see or store your payment details.
+                    The current public distribution version of Blockade operates natively as a baseline utility. No payment collection mechanisms, financial data arrays, or external merchant gateways are integrated into the source code of this release. Future implementations of alternative access options (such as Annual or Lifetime Passes) will utilize dedicated, PCI-compliant third-party merchants of record to guarantee financial isolation, and this policy will update explicitly when those modules launch.
                 </p>
             </section>
 
             <section>
                 <h2 class="text-xl font-semibold text-white tracking-tight mb-3">3. Extension Permissions Disclosure</h2>
                 <p>
-                    To successfully intercept and redirect your browser away from distracting domains, the extension requires standard WebRequest permissions. This access is utilized strictly for executing block functions dynamically on your local end-point environment. No background trackers, session eavesdropping scripts, or telemetry frameworks are present in the source code.
+                    To insulate your attention spans cleanly, Blockade leverages standard, sandboxed Manifest V3 APIs to operate 100% offline:
+                </p>
+                <ul class="list-disc list-inside mt-3 space-y-2 pl-2 text-zinc-400">
+                    <li><strong class="text-zinc-200 font-medium">declarativeNetRequest:</strong> Instructs the browser to drop connectivity to targeted distractions completely locally, without reading raw network payloads.</li>
+                    <li><strong class="text-zinc-200 font-medium">tabs:</strong> Used exclusively to evaluate if a restricted site is open in an unrefreshed window when updating preferences, allowing instant focus routing.</li>
+                    <li><strong class="text-zinc-200 font-medium">alarms & storage:</strong> Scheduled locally to run background cooldown timers and maintain your personal blocklist records across browser restarts.</li>
+                </ul>
+                <p class="mt-3">
+                    No background analytical trackers, telemetry frameworks, session eavesdropping scripts, or external data scrapers are present in the source code.
                 </p>
             </section>
         </div>
