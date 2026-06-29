@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketalpha Blockade | Block Site & Timed Site Access</title>
+    <title>Proappkart Blockade | Block Site & Timed Site Access</title>
     <meta name="description" content="Take control of your focus. Block distracting websites and configure smart, timed site access natively inside your browser.">
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -27,7 +26,6 @@
             }
         }
     </script>
-    <!-- Inter Font for Premium Typography Feel -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -39,7 +37,6 @@
 </head>
 <body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-brand-crimson selection:text-white relative">
 
-    <!-- Global Staging Toast Notification Banner -->
     <div id="staging-toast" class="fixed top-0 left-0 right-0 z-[100] transform -translate-y-full transition-transform duration-500 ease-out pointer-events-none">
         <div class="max-w-md mx-auto mt-6 px-4">
             <div class="bg-zinc-900 border-2 border-brand-crimson rounded-xl p-4 shadow-2xl shadow-brand-crimson/20 flex items-start space-x-3 pointer-events-auto">
@@ -49,9 +46,9 @@
                     </svg>
                 </div>
                 <div class="flex-1">
-                    <h4 class="text-sm font-semibold text-white">Store Release Staging Mode</h4>
+                    <h4 class="text-sm font-semibold text-white">Work in Progress</h4>
                     <p class="mt-1 text-xs text-zinc-400 leading-relaxed">
-                        Blockade is currently undergoing final Chrome Web Store review. This deployment link will activate instantly upon official release.
+                        Blockade is currently undergoing final optimization parameters. We are finalizing deployments and will be completely live soon.
                     </p>
                 </div>
                 <button onclick="closeToast()" class="text-zinc-500 hover:text-zinc-300 transition-colors">
@@ -61,7 +58,6 @@
         </div>
     </div>
 
-    <!-- Global Form Success Notification Banner -->
     <div id="success-toast" class="fixed top-0 left-0 right-0 z-[100] transform -translate-y-full transition-transform duration-500 ease-out pointer-events-none">
         <div class="max-w-md mx-auto mt-6 px-4">
             <div class="bg-zinc-900 border-2 border-emerald-600 rounded-xl p-4 shadow-2xl shadow-emerald-600/20 flex items-start space-x-3 pointer-events-auto">
@@ -80,44 +76,49 @@
         </div>
     </div>
 
-    <!-- Corporate Navigation Bar -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-zinc-950/80 border-b border-zinc-800/60 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logos (Left Side) -->
-            <div class="flex items-center space-x-3">
-                <!-- MarketAlpha Logo Image Asset -->
-                <img src="MA Logo White.png" alt="Marketalpha Logo" class="h-6 w-6 object-contain block">
-                
-                <span class="text-lg font-bold tracking-tight text-white">
-                    Marketalpha <span class="text-zinc-500 font-light mx-1">/</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-zinc-400">Blockade</span>
-                </span>
+            <div class="flex items-center space-x-6">
+                <img src="MA Logo White.png" alt="Proappkart Logo" class="h-10 w-auto max-w-full object-contain block">
+
+                <div class="relative group py-4">
+                    <button class="inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-300 hover:text-white transition-colors duration-200 focus:outline-none">
+                        Blockade
+                        <svg class="w-4 h-4 text-zinc-500 group-hover:text-zinc-300 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+
+                    <div class="absolute left-0 top-full w-56 rounded-xl bg-zinc-900 border border-zinc-800 p-2 shadow-2xl transition-all duration-200 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 pointer-events-auto z-50">
+                        <a href="#interface-preview" class="block px-4 py-2.5 text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-850 rounded-lg transition-colors">
+                            Product Features
+                        </a>
+                        <a href="#pricing" class="block px-4 py-2.5 text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-850 rounded-lg transition-colors">
+                            License Pricing
+                        </a>
+                        <a href="#support" class="block px-4 py-2.5 text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-850 rounded-lg transition-colors">
+                            Developer Support
+                        </a>
+                        <a href="#liability" class="block px-4 py-2.5 text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-850 rounded-lg transition-colors">
+                            Compliance Notice
+                        </a>
+                        <div class="border-t border-zinc-800/80 my-1"></div>
+                        <a href="#" onclick="triggerStagingAlert(event)" class="block px-4 py-2.5 text-xs font-semibold text-brand-crimson hover:text-white hover:bg-brand-crimson rounded-lg transition-colors">
+                            Add to Chrome
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <!-- Desktop Navigation Links (Center) -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-zinc-400">
-                <a href="#features" class="hover:text-white transition-colors duration-200">Features</a>
-                <a href="#pricing" class="hover:text-white transition-colors duration-200">Pricing</a>
-                <a href="#support" class="hover:text-white transition-colors duration-200">Support</a>
-                <a href="#liability" class="hover:text-white transition-colors duration-200">Compliance</a>
-            </nav>
-
-            <!-- Navigation CTA Container (Top Right Corner) -->
-            <div class="flex items-center">
-                <button onclick="triggerStagingAlert(event)" class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-brand-crimson hover:bg-brand-crimsonHover rounded-lg shadow-lg shadow-brand-crimson/20 transition-all duration-200 active:scale-95 cursor-pointer">
-                    Add to Chrome
-                </button>
-            </div>
+            <div class="flex items-center"></div>
         </div>
     </header>
 
     <main>
-        <!-- Aggressive Conversion Hero Zone -->
         <section class="relative overflow-hidden pt-24 pb-12 lg:pt-32 lg:pb-16 border-b border-zinc-900">
-            <!-- Subtle Radial Gradient Background Polish -->
             <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-gradient-to-b from-brand-crimson/5 to-transparent blur-3xl pointer-events-none"></div>
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                <!-- Custom Extension Product Badge Container -->
                 <div class="inline-flex items-center gap-4 px-5 py-3 rounded-full bg-zinc-900/90 border border-zinc-800 text-sm sm:text-base font-medium text-zinc-200 mb-10 max-w-max mx-auto shadow-2xl backdrop-blur-sm transition-all hover:border-zinc-700">
                     <img src="BlockadeIcon.png" alt="Blockade Logo" class="h-6 w-6 sm:h-7 sm:w-7 object-contain rounded-md shadow-md">
                     <span class="tracking-wide text-white font-medium">
@@ -125,7 +126,6 @@
                     </span>
                 </div>
 
-                <!-- Primary Core Heading -->
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-4xl mx-auto leading-tight">
                     Take Control of Your Impulsive Browsing Habits.
                 </h1>
@@ -134,7 +134,6 @@
                     Blockade breaks scrolling loops by adding intentional time allocation boundaries. Block distracting domains, customize short break intervals, and track your focus analytics locally.
                 </p>
 
-                <!-- Action Button Grouping -->
                 <div class="mt-10 flex items-center justify-center">
                     <button onclick="triggerStagingAlert(event)" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-brand-crimson hover:bg-brand-crimsonHover rounded-xl shadow-xl shadow-brand-crimson/20 transition-all duration-200 transform hover:-translate-y-0.5 active:scale-95 cursor-pointer">
                         <svg class="w-5 h-5 mr-2.5" viewBox="0 0 24 24" fill="currentColor">
@@ -145,7 +144,6 @@
                     </button>
                 </div>
 
-                <!-- Trusted/Endorsed Metadata Elements -->
                 <div class="mt-16 pt-8 border-t border-zinc-900 max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-3 gap-6 text-zinc-500 text-sm">
                     <div>
                         <span class="block text-white text-lg font-semibold">Strict</span> Website Blocking
@@ -160,8 +158,7 @@
             </div>
         </section>
 
-        <!-- Dynamic Visual Preview Showcase Section (Two-Tier Dashboard Format) -->
-        <section class="py-16 bg-zinc-950/40 border-b border-zinc-900 relative">
+        <section id="interface-preview" class="py-16 bg-zinc-950/40 border-b border-zinc-900 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-2xl mx-auto mb-16">
                     <span class="text-xs font-bold uppercase tracking-widest text-brand-crimson bg-brand-crimson/10 px-3 py-1 rounded-full">Interface Preview</span>
@@ -169,11 +166,9 @@
                 </div>
                 
                 <div class="space-y-16 max-w-5xl mx-auto">
-                    <!-- TIER 1: The Control Dashboard Layout -->
                     <div>
                         <h3 class="text-sm font-semibold text-zinc-500 uppercase tracking-wider mb-6 text-center md:text-left border-b border-zinc-900 pb-2">Step 1: Configure Your Boundaries</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                            <!-- Column 1: Free Extension Popup -->
                             <div class="w-full group">
                                 <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-3 shadow-2xl transition-all duration-300 group-hover:border-zinc-700/80 group-hover:shadow-brand-crimson/5">
                                     <div class="overflow-hidden rounded-xl bg-zinc-950 flex items-center justify-center p-1">
@@ -187,7 +182,6 @@
                                 </div>
                             </div>
 
-                            <!-- Column 2: Premium Extension Popup with Logs -->
                             <div class="w-full group">
                                 <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-3 shadow-2xl transition-all duration-300 group-hover:border-zinc-700/80 group-hover:shadow-brand-crimson/5">
                                     <div class="overflow-hidden rounded-xl bg-zinc-950 flex items-center justify-center p-1">
@@ -203,11 +197,9 @@
                         </div>
                     </div>
 
-                    <!-- TIER 2: The Interception Flow Layout -->
                     <div class="pt-4">
                         <h3 class="text-sm font-semibold text-zinc-500 uppercase tracking-wider mb-6 text-center md:text-left border-b border-zinc-900 pb-2">Step 2: Enforce Deep Focus In Real Time</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                            <!-- Column 3: Intercept Block Page Interface -->
                             <div class="w-full group">
                                 <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-3 shadow-2xl transition-all duration-300 group-hover:border-zinc-700/80 group-hover:shadow-brand-crimson/5">
                                     <div class="overflow-hidden rounded-xl bg-zinc-950 flex items-center justify-center p-1">
@@ -221,7 +213,6 @@
                                 </div>
                             </div>
 
-                            <!-- Column 4: Screenshot UnBlock Website Card -->
                             <div class="w-full group">
                                 <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-3 shadow-2xl transition-all duration-300 group-hover:border-zinc-700/80 group-hover:shadow-brand-crimson/5">
                                     <div class="overflow-hidden rounded-xl bg-zinc-950 flex items-center justify-center p-1">
@@ -240,7 +231,6 @@
             </div>
         </section>
 
-        <!-- 3-Column Features Showcase -->
         <section id="features" class="py-20 lg:py-24 border-b border-zinc-900 bg-zinc-950">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
@@ -249,10 +239,8 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Feature Card 1 -->
                     <div class="p-8 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 hover:border-zinc-700 transition-all duration-200 flex flex-col justify-between">
                         <div>
-                            <!-- Crimson Support-Style Icon Container -->
                             <div class="h-12 w-12 rounded-xl bg-brand-crimson/10 text-brand-crimson flex items-center justify-center mb-6 shadow-inner">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                             </div>
@@ -263,10 +251,8 @@
                         </div>
                     </div>
 
-                    <!-- Feature Card 2 -->
                     <div class="p-8 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 hover:border-zinc-700 transition-all duration-200 flex flex-col justify-between">
                         <div>
-                            <!-- Crimson Support-Style Icon Container -->
                             <div class="h-12 w-12 rounded-xl bg-brand-crimson/10 text-brand-crimson flex items-center justify-center mb-6 shadow-inner">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             </div>
@@ -277,10 +263,8 @@
                         </div>
                     </div>
 
-                    <!-- Feature Card 3 -->
                     <div class="p-8 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 hover:border-zinc-700 transition-all duration-200 flex flex-col justify-between">
                         <div>
-                            <!-- Crimson Support-Style Icon Container -->
                             <div class="h-12 w-12 rounded-xl bg-brand-crimson/10 text-brand-crimson flex items-center justify-center mb-6 shadow-inner">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                             </div>
@@ -294,17 +278,14 @@
             </div>
         </section>
 
-        <!-- Premium 3-Column Pricing Matrix Grid -->
         <section id="pricing" class="py-20 lg:py-24 border-b border-zinc-900 bg-zinc-950/40">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- Heading -->
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Make Time for What Matters</h2>
                     <p class="mt-4 text-zinc-400 font-light">Upgrade for deeper focus, fewer distractions, and a customized experience.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
-                    <!-- Option 1: Blockade Free Pass -->
                     <div class="p-8 rounded-2xl bg-zinc-900/30 border border-zinc-850 flex flex-col justify-between relative">
                         <div>
                             <div class="mb-6">
@@ -340,7 +321,6 @@
                         </div>
                     </div>
 
-                    <!-- Option 2: Blockade Annual Pass -->
                     <div class="p-8 rounded-2xl bg-zinc-900/60 border border-zinc-800 flex flex-col justify-between relative">
                         <div>
                             <div class="mb-6">
@@ -376,7 +356,6 @@
                         </div>
                     </div>
 
-                    <!-- Option 3: Blockade Lifetime Pass -->
                     <div class="p-8 rounded-2xl bg-zinc-900 border-2 border-brand-crimson flex flex-col justify-between relative shadow-2xl shadow-brand-crimson/5">
                         <div class="absolute -top-3.5 right-6 inline-flex items-center px-3 py-0.5 rounded-full text-xs font-semibold bg-brand-crimson text-white tracking-wide uppercase">
                             Ultimate Value
@@ -418,7 +397,6 @@
             </div>
         </section>
 
-        <!-- Direct Support Inbox Section -->
         <section id="support" class="py-16 bg-zinc-950 border-b border-zinc-900">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8 backdrop-blur-sm shadow-xl">
@@ -434,7 +412,6 @@
                                 Have a capability inquiry, feature recommendation, or need troubleshooting support? Send a description directly to my developer account inbox.
                             </p>
 
-                            <!-- AJAX-Powered Form Connection Linked directly to Formspree token -->
                             <form id="support-form" action="https://formspree.io/f/mpqeewal" method="POST" class="mt-6 space-y-4">
                                 <div>
                                     <label for="email" class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Your Email</label>
@@ -443,7 +420,6 @@
                                 <div>
                                     <label for="message" class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Message Description</label>
                                     <textarea id="message" name="message" rows="4" required class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-700 focus:outline-none focus:border-brand-crimson transition-colors resize-none mb-1" placeholder="Explain your browser configuration scenario or feature requests here..."></textarea>
-                                    <!-- Response Time Disclaimer -->
                                     <p class="text-[11px] text-zinc-500 font-light italic flex items-center gap-1.5 px-1">
                                         <svg class="w-3 h-3 text-zinc-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -461,11 +437,9 @@
             </div>
         </section>
 
-        <!-- Compliance & Legal Zone -->
         <section id="liability" class="py-16 bg-zinc-950">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <!-- Privacy and Terms Links Positioned Directly Above the Disclaimer Box -->
                 <div class="mb-6 p-4 bg-zinc-900/30 rounded-xl border border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-y-3 px-6 shadow-inner">
                     <div class="flex items-center space-x-2">
                         <span class="inline-block w-1.5 h-1.5 rounded-full bg-brand-crimson animate-pulse"></span>
@@ -478,7 +452,6 @@
                     </div>
                 </div>
 
-                <!-- Amber/Red Outlined System Liability Notice Callout Box -->
                 <div class="rounded-xl border border-amber-600/40 bg-zinc-900/50 p-6 sm:p-8 backdrop-blur-sm">
                     <div class="flex flex-col sm:flex-row gap-4 items-start">
                         <div class="p-2 bg-amber-600/10 rounded-lg text-amber-500 border border-amber-500/20 flex-shrink-0">
@@ -491,7 +464,7 @@
                                 Regulatory Compliance & System Liability Disclaimer
                             </h3>
                             <p class="mt-2 text-xs sm:text-sm text-zinc-400 font-light leading-relaxed">
-                                Marketalpha Blockade acts as a localized barrier framework operating exclusively within client-side environments. While Blockade provides advanced filtering variables to prevent distracting requests and intercept targeted endpoints, filter execution parameters depend directly on user configurations. Marketalpha assumes absolute zero operational or procedural liability for lost productivity metrics, user override habits, browser configuration corruptions, or internal workflow modifications. Users are responsible for structuring rules in alignment with corporate compliance parameters. Approved refund processing schedules typically require 15-20 working days to clear payment network rails entirely, though the platform will consistently apply maximum effort to execute balances earlier.
+                                Proappkart Blockade acts as a localized barrier framework operating exclusively within client-side environments. While Blockade provides advanced filtering variables to prevent distracting requests and intercept targeted endpoints, filter execution parameters depend directly on user configurations. Proappkart assumes absolute zero operational or procedural liability for lost productivity metrics, user override habits, browser configuration corruptions, or internal workflow modifications. Users are responsible for structuring rules in alignment with corporate compliance parameters. Approved refund processing schedules typically require 15-20 working days to clear payment network rails entirely, though the platform will consistently apply maximum effort to execute balances earlier.
                             </p>
                         </div>
                     </div>
@@ -500,13 +473,12 @@
         </section>
     </main>
 
-    <!-- Professional Footer -->
     <footer class="border-t border-zinc-900 bg-zinc-950 text-zinc-500 text-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div class="flex items-center space-x-2">
-                <span class="font-semibold text-zinc-400 tracking-tight">Marketalpha Portal</span>
+                <span class="font-semibold text-zinc-400 tracking-tight">Proappkart Portal</span>
                 <span class="text-zinc-700">|</span>
-                <span>© 2026 Marketalpha Technologies Inc. All structural rights reserved.</span>
+                <span>© 2026 Proappkart Technologies Inc. All structural rights reserved.</span>
             </div>
             
             <div class="flex items-center space-x-6 text-zinc-600">
@@ -515,7 +487,6 @@
         </div>
     </footer>
 
-    <!-- Script Operations Block -->
     <script>
         let toastTimeout;
         
