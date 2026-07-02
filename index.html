@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proappkart Blockade | Block Site & Timed Site Access</title>
+    <link rel="icon" type="image/png" href="Plogo.png">
     <meta name="description" content="Take control of your focus. Block distracting websites and configure smart, timed site access natively inside your browser.">
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,6 +19,8 @@
                         brand: {
                             crimson: '#DC3545',
                             crimsonHover: '#BB2D3B',
+                            amberYellow: '#FFC107',
+                            amberYellowHover: '#E0A800'
                         }
                     },
                     fontFamily: {
@@ -26,6 +30,7 @@
             }
         }
     </script>
+    <!-- Inter Font Configuration -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -37,6 +42,7 @@
 </head>
 <body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-brand-crimson selection:text-white relative">
 
+    <!-- Global Staging Toast Notification Banner -->
     <div id="staging-toast" class="fixed top-0 left-0 right-0 z-[100] transform -translate-y-full transition-transform duration-500 ease-out pointer-events-none">
         <div class="max-w-md mx-auto mt-6 px-4">
             <div class="bg-zinc-900 border-2 border-brand-crimson rounded-xl p-4 shadow-2xl shadow-brand-crimson/20 flex items-start space-x-3 pointer-events-auto">
@@ -58,6 +64,7 @@
         </div>
     </div>
 
+    <!-- Global Form Success Notification Banner -->
     <div id="success-toast" class="fixed top-0 left-0 right-0 z-[100] transform -translate-y-full transition-transform duration-500 ease-out pointer-events-none">
         <div class="max-w-md mx-auto mt-6 px-4">
             <div class="bg-zinc-900 border-2 border-emerald-600 rounded-xl p-4 shadow-2xl shadow-emerald-600/20 flex items-start space-x-3 pointer-events-auto">
@@ -76,11 +83,13 @@
         </div>
     </div>
 
+    <!-- Corporate Navigation Bar -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-zinc-950/80 border-b border-zinc-800/60 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-6">
-                <img src="MA Logo White.png" alt="Proappkart Logo" class="h-10 w-auto max-w-full object-contain block">
+                <img src="proappkartlogo.png" alt="Proappkart Logo" class="h-10 w-auto max-w-full object-contain block">
 
+                <!-- Single Interactive 'Blockade' Dropdown Structure -->
                 <div class="relative group py-4">
                     <button class="inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-300 hover:text-white transition-colors duration-200 focus:outline-none">
                         Blockade
@@ -103,7 +112,7 @@
                             Compliance Notice
                         </a>
                         <div class="border-t border-zinc-800/80 my-1"></div>
-                        <a href="#" onclick="triggerStagingAlert(event)" class="block px-4 py-2.5 text-xs font-semibold text-brand-crimson hover:text-white hover:bg-brand-crimson rounded-lg transition-colors">
+                        <a href="https://chromewebstore.google.com/detail/blockade-block-site-tempo/pplbcnlacopklamigfgjhedniojdcnch" target="_blank" rel="noopener noreferrer" class="block px-4 py-2.5 text-xs font-semibold text-brand-crimson hover:text-white hover:bg-brand-crimson rounded-lg transition-colors">
                             Add to Chrome
                         </a>
                     </div>
@@ -115,6 +124,7 @@
     </header>
 
     <main>
+        <!-- Hero Zone Section -->
         <section class="relative overflow-hidden pt-24 pb-12 lg:pt-32 lg:pb-16 border-b border-zinc-900">
             <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-gradient-to-b from-brand-crimson/5 to-transparent blur-3xl pointer-events-none"></div>
             
@@ -134,14 +144,19 @@
                     Blockade breaks scrolling loops by adding intentional time allocation boundaries. Block distracting domains, customize short break intervals, and track your focus analytics locally.
                 </p>
 
-                <div class="mt-10 flex items-center justify-center">
-                    <button onclick="triggerStagingAlert(event)" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-brand-crimson hover:bg-brand-crimsonHover rounded-xl shadow-xl shadow-brand-crimson/20 transition-all duration-200 transform hover:-translate-y-0.5 active:scale-95 cursor-pointer">
-                        <svg class="w-5 h-5 mr-2.5" viewBox="0 0 24 24" fill="currentColor">
+                <!-- Dual Conversion Action Buttons Wrapper -->
+                <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto sm:max-w-none">
+                    <a href="https://chromewebstore.google.com/detail/blockade-block-site-tempo/pplbcnlacopklamigfgjhedniojdcnch" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-brand-crimson hover:bg-brand-crimsonHover rounded-xl shadow-xl shadow-brand-crimson/20 transition-all duration-200 transform hover:-translate-y-0.5 active:scale-95 text-center">
+                        <svg class="w-5 h-5 mr-2.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 17.18c-2.86 0-5.18-2.32-5.18-5.18S9.14 6.82 12 6.82s5.18 2.32 5.18 5.18-2.32 5.18-5.18 5.18z"/>
                             <path d="M12 8.73c-1.81 0-3.27 1.46-3.27 3.27s1.46 3.27 3.27 3.27 3.27-1.46 3.27-3.27-1.46-3.27-3.27-3.27z"/>
                         </svg>
                         Add to Chrome (Free)
-                    </button>
+                    </a>
+                    
+                    <a href="#pricing" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-black bg-brand-amberYellow hover:bg-brand-amberYellowHover rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 active:scale-95 text-center shadow-lg tracking-wide">
+                        Activate Premium
+                    </a>
                 </div>
 
                 <div class="mt-16 pt-8 border-t border-zinc-900 max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-3 gap-6 text-zinc-500 text-sm">
@@ -158,6 +173,7 @@
             </div>
         </section>
 
+        <!-- Dynamic Visual Preview Area -->
         <section id="interface-preview" class="py-16 bg-zinc-950/40 border-b border-zinc-900 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-2xl mx-auto mb-16">
@@ -231,6 +247,7 @@
             </div>
         </section>
 
+        <!-- Features Matrix Section -->
         <section id="features" class="py-20 lg:py-24 border-b border-zinc-900 bg-zinc-950">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
@@ -278,6 +295,7 @@
             </div>
         </section>
 
+        <!-- Pricing Index Matrix -->
         <section id="pricing" class="py-20 lg:py-24 border-b border-zinc-900 bg-zinc-950/40">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
@@ -286,6 +304,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+                    <!-- OPTION 1: Free Pass Card -->
                     <div class="p-8 rounded-2xl bg-zinc-900/30 border border-zinc-850 flex flex-col justify-between relative">
                         <div>
                             <div class="mb-6">
@@ -315,17 +334,22 @@
                             </ul>
                         </div>
                         <div class="mt-8">
-                            <button onclick="triggerStagingAlert(event)" class="w-full inline-flex items-center justify-center px-4 py-3 text-sm font-semibold text-zinc-300 hover:text-white bg-zinc-900 hover:bg-zinc-850 border border-zinc-800 rounded-xl transition-all duration-200 cursor-pointer">
-                                Get Started Free
-                            </button>
+                            <a href="https://chromewebstore.google.com/detail/blockade-block-site-tempo/pplbcnlacopklamigfgjhedniojdcnch" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center px-4 py-3 text-sm font-semibold text-zinc-300 hover:text-white bg-zinc-900 hover:bg-zinc-850 border border-zinc-800 rounded-xl transition-all duration-200 cursor-pointer text-center">
+                                Get Free Pass
+                            </a>
                         </div>
                     </div>
 
-                    <div class="p-8 rounded-2xl bg-zinc-900/60 border border-zinc-800 flex flex-col justify-between relative">
+                    <!-- OPTION 2: Annual Pass Card -->
+                    <div class="p-8 rounded-2xl bg-zinc-900 border-2 border-zinc-100 flex flex-col justify-between relative shadow-2xl">
+                        <!-- UPDATED: Repositioned from 'left-1/2 -translate-x-1/2' to 'right-6' to match the layout formatting of the Ultimate Value bubble[cite: 2] -->
+                        <div class="absolute -top-3.5 right-6 inline-flex items-center px-3 py-0.5 rounded-full text-xs font-semibold bg-zinc-100 text-zinc-950 tracking-wide uppercase shadow-md whitespace-nowrap">
+                            Budget Friendly
+                        </div>
                         <div>
                             <div class="mb-6">
                                 <h3 class="text-xl font-semibold text-white">Blockade Annual Pass</h3>
-                                <p class="mt-2 text-zinc-400 text-sm font-light">Flexible distraction containment framework.</p>
+                                <p class="mt-2 text-zinc-400 text-sm font-light">Flexible distraction distraction frameworks.</p>
                             </div>
                             <div class="my-6 flex items-baseline">
                                 <span class="text-4xl font-extrabold tracking-tight text-white">$12</span>
@@ -351,11 +375,12 @@
                         </div>
                         <div class="mt-8">
                             <button onclick="triggerStagingAlert(event)" class="w-full inline-flex items-center justify-center px-4 py-3 text-sm font-semibold text-zinc-200 hover:text-white bg-zinc-850 hover:bg-zinc-800 border border-zinc-700 rounded-xl transition-all duration-200 cursor-pointer">
-                                Subscribe Annually
+                                Get Annual Pass
                             </button>
                         </div>
                     </div>
 
+                    <!-- OPTION 3: Lifetime Pass Card -->
                     <div class="p-8 rounded-2xl bg-zinc-900 border-2 border-brand-crimson flex flex-col justify-between relative shadow-2xl shadow-brand-crimson/5">
                         <div class="absolute -top-3.5 right-6 inline-flex items-center px-3 py-0.5 rounded-full text-xs font-semibold bg-brand-crimson text-white tracking-wide uppercase">
                             Ultimate Value
@@ -389,7 +414,7 @@
                         </div>
                         <div class="mt-8">
                             <button onclick="triggerStagingAlert(event)" class="w-full inline-flex items-center justify-center px-4 py-3 text-sm font-semibold text-white bg-brand-crimson hover:bg-brand-crimsonHover rounded-xl shadow-lg shadow-brand-crimson/20 transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer">
-                                Buy Lifetime Absolute
+                                Buy Lifetime Pass
                             </button>
                         </div>
                     </div>
@@ -397,6 +422,7 @@
             </div>
         </section>
 
+        <!-- Direct Support Inbox Section -->
         <section id="support" class="py-16 bg-zinc-950 border-b border-zinc-900">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8 backdrop-blur-sm shadow-xl">
@@ -437,6 +463,7 @@
             </div>
         </section>
 
+        <!-- Compliance & Legal Zone -->
         <section id="liability" class="py-16 bg-zinc-950">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 
@@ -456,7 +483,7 @@
                     <div class="flex flex-col sm:flex-row gap-4 items-start">
                         <div class="p-2 bg-amber-600/10 rounded-lg text-amber-500 border border-amber-500/20 flex-shrink-0">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77(1.333.192 3 1.732 3z"></path>
                             </svg>
                         </div>
                         <div>
@@ -473,6 +500,7 @@
         </section>
     </main>
 
+    <!-- Professional Footer -->
     <footer class="border-t border-zinc-900 bg-zinc-950 text-zinc-500 text-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div class="flex items-center space-x-2">
@@ -487,9 +515,22 @@
         </div>
     </footer>
 
+    <!-- Operational JavaScript Operations Block -->
     <script>
         let toastTimeout;
         
+        // Auto-scroll fix for extension redirects containing query parameters after the hash
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.href.includes('#pricing')) {
+                const pricingSection = document.getElementById('pricing');
+                if (pricingSection) {
+                    setTimeout(() => {
+                        pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 300);
+                }
+            }
+        });
+
         // Staging Banner Management
         function triggerStagingAlert(event) {
             event.preventDefault();
