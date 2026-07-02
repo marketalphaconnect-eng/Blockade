@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | Blockade Extension</title>
+    <!-- Tab Favicon Configuration Layer -->
+    <link rel="icon" type="image/png" href="Plogo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -15,7 +17,7 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-zinc-950 text-zinc-100 antialiased font-sans">
 
@@ -34,41 +36,41 @@
         <!-- Page Title -->
         <div class="border-b border-zinc-900 pb-8 mb-12">
             <h1 class="text-3xl font-bold text-white tracking-tight">Privacy Policy</h1>
-            <p class="mt-2 text-sm text-zinc-500">Last updated: June 2026</p>
+            <p class="mt-2 text-sm text-zinc-500">Last updated: July 2026</p>
         </div>
 
         <!-- Solo Developer Content -->
         <div class="space-y-10 text-zinc-300 font-light leading-relaxed">
             <p class="text-lg text-zinc-400">
-                Hi there. We built Blockade to help people recapture their focus, not to collect or monetize your personal data. Here is the absolute, no-nonsense truth about how Blockade handles your privacy.
+                Hi there. We built Blockade to help you recapture your focus, not to collect or monetize your personal data. Here is the absolute, no-nonsense truth about how Blockade handles your privacy.
             </p>
 
             <section>
-                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">1. 100% Local Data Rule (Zero Logs)</h2>
+                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">1. Local Browsing Data Rule (Zero Browsing Logs)</h2>
                 <p>
-                    Blockade is engineered with a strict **zero-server infrastructure**. Your manually configured domain blocklists, active bypass timer timestamps, and configuration preferences are processed and stored exclusively inside your browser memory container using <code class="text-xs text-brand-crimson bg-zinc-900 px-1.5 py-0.5 rounded font-mono">chrome.storage.local</code>. We do not own, lease, or operate external cloud databases that capture your data, meaning your browsing habits never leave your local machine.
+                    Your browsing history is entirely your business. Your manually configured domain blocklists, active bypass timer timestamps, and configuration preferences are processed and stored exclusively inside your browser memory container using <code class="text-xs text-brand-crimson bg-zinc-900 px-1.5 py-0.5 rounded font-mono">chrome.storage.local</code>. Blockade **never** tracks, logs, transfers, or uploads the websites you visit or the domains you choose to block to any external servers.
                 </p>
             </section>
 
             <section>
-                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">2. Payments & Licensing Status</h2>
+                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">2. Cloud-Based License Verification</h2>
                 <p>
-                    The current public distribution version of Blockade operates natively as a baseline utility. No payment collection mechanisms, financial data arrays, or external merchant gateways are integrated into the source code of this release. Future implementations of alternative access options (such as Annual or Lifetime Passes) will utilize dedicated, PCI-compliant third-party merchants of record to guarantee financial isolation, and this policy will update explicitly when those modules launch.
+                    Blockade utilizes a highly secure, cloud-hosted backend infrastructure (via Supabase) solely to verify your account's subscription tier. When the extension starts up or runs its automated background synchronization routine, it sends a localized network handshake containing your distinct, randomized Chrome Extension Runtime ID. This handshake reads your corresponding activation tier (such as <code class="text-xs text-zinc-400 bg-zinc-900 px-1 py-0.5 rounded font-mono">FREE_PASS</code>, <code class="text-xs text-zinc-400 bg-zinc-900 px-1 py-0.5 rounded font-mono">ANNUAL_PASS</code>, or <code class="text-xs text-zinc-400 bg-zinc-900 px-1 py-0.5 rounded font-mono">LIFETIME_PASS</code>) and subscription expiration timestamps. This data is used exclusively for feature access control and is never linked to your local blocklist setups.
                 </p>
             </section>
 
             <section>
                 <h2 class="text-xl font-semibold text-white tracking-tight mb-3">3. Extension Permissions Disclosure</h2>
                 <p>
-                    To insulate your attention spans cleanly, Blockade leverages standard, sandboxed Manifest V3 APIs to operate 100% offline:
+                    To insulate your attention spans cleanly, Blockade leverages sandboxed Manifest V3 APIs to operate efficiently and transparently:
                 </p>
                 <ul class="list-disc list-inside mt-3 space-y-2 pl-2 text-zinc-400">
-                    <li><strong class="text-zinc-200 font-medium">declarativeNetRequest:</strong> Instructs the browser to drop connectivity to targeted distractions completely locally, without reading raw network payloads.</li>
+                    <li><strong class="text-zinc-200 font-medium">declarativeNetRequest:</strong> Instructs the browser to drop network connectivity to targeted distractions completely locally, without reading raw page contents or network payloads.</li>
                     <li><strong class="text-zinc-200 font-medium">tabs:</strong> Used exclusively to evaluate if a restricted site is open in an unrefreshed window when updating preferences, allowing instant focus routing.</li>
                     <li><strong class="text-zinc-200 font-medium">alarms & storage:</strong> Scheduled locally to run background cooldown timers and maintain your personal blocklist records across browser restarts.</li>
                 </ul>
                 <p class="mt-3">
-                    No background analytical trackers, telemetry frameworks, session eavesdropping scripts, or external data scrapers are present in the source code.
+                    No third-party behavioral analytics, telemetry frameworks, session eavesdropping scripts, or external data scrapers are present in the source code.
                 </p>
             </section>
         </div>
