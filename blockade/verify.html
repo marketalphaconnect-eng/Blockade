@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verifying Blockade Session...</title>
+  <style>
+    body { background: #09090b; color: #fff; font-family: -apple-system, sans-serif; text-align: center; padding-top: 80px; margin: 0; }
+    .loader { color: #DC3545; font-size: 24px; font-weight: bold; margin-bottom: 20px; }
+    p { color: #a1a1aa; line-height: 1.6; max-width: 500px; margin: 10px auto; font-size: 14px; }
+    .fallback-box { display: none; background: #121214; border: 1px solid #222226; padding: 25px; border-radius: 8px; max-width: 450px; margin: 30px auto; box-sizing: border-box; }
+    .token-display { background: #09090b; border: 1px dashed #3f3f46; padding: 12px; font-family: monospace; font-size: 13px; color: #ffc107; word-break: break-all; margin: 15px 0; border-radius: 4px; user-select: all; text-align: left; max-height: 100px; overflow-y: auto; }
+  </style>
+</head>
+<body>
+
+  <div class="loader">⚙️ Blockade Identity Verification</div>
+  <p id="msg">Exchanging security signatures with your local browser extension framework...</p>
+
+  <!-- FALLBACK MATRIX: AUTOMATICALLY VISIBLE IF ACCESSED FROM SEPARATED ENVIRONMENTS -->
+  <div id="fallbackUI" class="fallback-box">
+    <div style="font-weight: bold; color: #ffc107; margin-bottom: 8px; font-size: 16px;">Cross-Browser Environment Detected</div>
+    <p style="font-size: 13px; color: #a1a1aa;">Your email verification link opened in a different browser window than where Blockade is active. Copy this unique security key string:</p>
+    <div class="token-display" id="tokenDisplay"></div>
+    <p style="font-size: 13px; color: #71717a;">Go back to your active extension browser tab, paste this long code signature into the verification box container, and hit confirm.</p>
+  </div>
+
+  <script>
+    // 1. Intercept url hash strings dropped from server redirections
+    const urlParams = new URLSearchParams(window.location.search);
+    const hashToken = urlParams.get("token") || window.location.hash.split("access_token=")[1]?.split("&")[0];
+    
+    // 2. ⚠️ INSERT YOUR CRITICAL DEPLOYED CHROME EXTENSION ID HERE
+    const BLOCKADE_EXTENSION_ID = "YOUR_ACTUAL_CHROME_EXTENSION_ID_HERE";
+
+    if (hashToken) {
+      if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.sendMessage) {
+        // 3. Attempt direct background parameter injection handshaking
+        chrome.runtime.sendMessage(BLOCKADE_EXTENSION_ID, { 
+          action: "processExternalAuth", 
+          token: hashToken 
+        }, (response) => {
+          if (chrome.runtime.lastError || !response || !response.success) {
+            // Extension unreachable on same device layout context -> trigger fallback display
+            activateManualFallback();
+          } else {
+            document.getElementById("msg").innerHTML = `<span style="color:#ffc107; font-size:16px; font-weight:bold;">✓ Extension Linked Successfully!</span><br><p>Identity records matched. You can close this browser tab window safely now.</p>`;
+          }
+        });
+      } else {
+        // Not a runtime environment context matching Chrome APIs -> activate fallback instantly
+        activateManualFallback();
+      }
+    } else {
+      document.getElementById("msg").innerHTML = `<span style="color:#DC3545;">Authentication Failure</span><p>No valid secure identity validation credentials matched inside the incoming URL query payload.</p>`;
+    }
+
+    function activateManualFallback() {
+      document.getElementById("msg").style.display = "none";
+      document.getElementById("tokenDisplay").innerText = hashToken;
+      document.getElementById("fallbackUI").style.display = "block";
+    }
+  </script>
+</body>
+</html>
