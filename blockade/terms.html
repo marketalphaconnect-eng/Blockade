@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Operation | Blockade Extension</title>
+    <title>Terms of Operation | Blockade</title>
     <!-- Tab Favicon Configuration Layer -->
     <link rel="icon" type="image/png" href="Plogo.png">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,7 +11,10 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: { zinc: { 950: '#09090b' }, brand: { crimson: '#DC3545', crimsonHover: '#BB2D3B' } },
+                    colors: { 
+                        zinc: { 950: '#09090b' }, 
+                        brand: { cyan: '#06b6d4', crimson: '#DC3545', crimsonHover: '#BB2D3B' } 
+                    },
                     fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
             }
@@ -24,7 +27,7 @@
     <!-- Simple Nav Header -->
     <header class="border-b border-zinc-800/60 bg-zinc-950/80 sticky top-0 backdrop-blur-md z-50">
         <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html#liability" class="text-sm font-semibold tracking-tight hover:text-zinc-300 transition-colors flex items-center gap-2">
+            <a href="index.html" class="text-sm font-semibold tracking-tight hover:text-zinc-300 transition-colors flex items-center gap-2">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                 Back to Blockade
             </a>
@@ -36,33 +39,50 @@
         <!-- Page Title -->
         <div class="border-b border-zinc-900 pb-8 mb-12">
             <h1 class="text-3xl font-bold text-white tracking-tight">Terms of Operation</h1>
-            <p class="mt-2 text-sm text-zinc-500">Last updated: July 2026</p>
+            <p class="mt-2 text-sm text-zinc-500">Last updated: August 2026</p>
         </div>
 
-        <!-- Solo Developer Content -->
         <div class="space-y-10 text-zinc-300 font-light leading-relaxed">
             <p class="text-lg text-zinc-400">
-                Welcome to Blockade. By installing this extension, you are agreeing to these basic operational terms. No hidden traps here—just simple guidelines on how the tool is licensed, operated, and supported.
+                Welcome to Blockade. By installing our extension, using our command dashboard, or accessing our services, you agree to these clear and straightforward terms of operation.
             </p>
 
             <section>
-                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">1. License Tiers & Account Verification</h2>
+                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">1. Service Tiers & Feature Allocations</h2>
                 <p>
-                    Blockade offers two operational tiers: a standard **Free Pass** and upgraded paid memberships (**Annual or Lifetime Passes**). Free Pass usage strictly restricts your active blocklist slots to a single website at any given time. Paid tiers grant an unrestricted license to unlock unlimited slots and custom duration bypass windows. Subscription tiers are validated automatically via periodic, secure background network handshakes with our cloud infrastructure database using your unique Chrome Runtime ID. You are strictly prohibited from modifying local browser storage allocations to manipulate license rules or white-labeling the tool for individual redistribution.
+                    Blockade is offered across distinct subscription tiers:
+                </p>
+                <ul class="list-disc pl-5 mt-2 space-y-2 text-zinc-400">
+                    <li>
+                        <strong>Free Pass:</strong> Allows you to block up to 2 active domains, set up to 2 automated focus schedules, and utilize 2-minute temporary bypass sessions.
+                    </li>
+                    <li>
+                        <strong>Pro Pass (Trial & Paid):</strong> Expands capacity up to 20 domains, 20 automated focus schedules, extended bypass windows (5 & 15 minutes), and multi-device DNS protection profiles.
+                    </li>
+                </ul>
+                <p class="mt-3">
+                    Subscription status is authenticated through secure cloud infrastructure. Attempting to reverse engineer, bypass tier checks, modify local extension code to unlock restricted features, or redistribute the software without authorization is strictly prohibited.
                 </p>
             </section>
 
             <section>
-                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">2. Refund Parameters</h2>
+                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">2. DNS Protection & Network Limitations</h2>
                 <p>
-                    We stand behind the focus utility of this tool. If Blockade does not seamlessly optimize your browsing parameters or fails to prevent your distraction loops, you can request a refund within **7 days of purchase**. Please note that the refund process will take **15-20 working days** to fully clear payment networks, though we will try our absolute best to execute it much earlier. We will refund the exact net payout amount received by my developer account from the merchant ecosystem; any fixed processing fees or card gateway deductions retained by the financial network infrastructure cannot be refunded.
+                    The Multi-Device Protection Hub utilizes domain name resolution (DNS) filtering. While this blocks access across most apps and browsers, certain third-party native apps use hardcoded IP addresses or internal resolvers that bypass external DNS. Blockade cannot intercept connections that do not use standard DNS lookups.
                 </p>
             </section>
 
             <section>
-                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">3. Shared Responsibility Model</h2>
+                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">3. Refund Policy</h2>
                 <p>
-                    Blockade operates purely as a client-side execution layer to aid personal productivity. As the developer, we construct the focus-insulation parameters and background timer rules, but you are completely responsible for your own tracking choices and the phrases typed during unlock challenges. We assume zero liability for any files, uncompleted work assignments, financial metrics, corporate system logs, or external data pipelines affected by user-defined site restrictions, temporary bypass windows, or accidental interface access delays.
+                    We want you to be confident in your decision to build better digital focus. If Blockade does not meet your workflow requirements, you may request a full refund within <strong>7 days of purchase</strong> by emailing <a href="mailto:blockade.support@proappkart.com" class="text-brand-cyan underline">blockade.support@proappkart.com</a>. Refunds are processed through our merchant payment gateways and typically take 5–10 business days to reflect on your statement.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">4. Disclaimer of Liability</h2>
+                <p>
+                    Blockade is a self-directed productivity tool designed to help you enforce self-discipline. You remain entirely responsible for the domains you block, the focus schedules you establish, and the deliberate bypass challenge phrases you enter. Proappkart Technologies Inc. shall not be held liable for any missed deadlines, financial losses, work interruptions, or data delays arising from your use of domain blocks, scheduled lockouts, or temporary bypass windows.
                 </p>
             </section>
         </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy | Blockade Extension</title>
+    <title>Privacy Policy | Blockade</title>
     <!-- Tab Favicon Configuration Layer -->
     <link rel="icon" type="image/png" href="Plogo.png">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,7 +11,10 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: { zinc: { 950: '#09090b' }, brand: { crimson: '#DC3545', crimsonHover: '#BB2D3B' } },
+                    colors: { 
+                        zinc: { 950: '#09090b' }, 
+                        brand: { cyan: '#06b6d4', crimson: '#DC3545', crimsonHover: '#BB2D3B' } 
+                    },
                     fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
             }
@@ -24,7 +27,7 @@
     <!-- Simple Nav Header -->
     <header class="border-b border-zinc-800/60 bg-zinc-950/80 sticky top-0 backdrop-blur-md z-50">
         <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html#liability" class="text-sm font-semibold tracking-tight hover:text-zinc-300 transition-colors flex items-center gap-2">
+            <a href="index.html" class="text-sm font-semibold tracking-tight hover:text-zinc-300 transition-colors flex items-center gap-2">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                 Back to Blockade
             </a>
@@ -36,41 +39,54 @@
         <!-- Page Title -->
         <div class="border-b border-zinc-900 pb-8 mb-12">
             <h1 class="text-3xl font-bold text-white tracking-tight">Privacy Policy</h1>
-            <p class="mt-2 text-sm text-zinc-500">Last updated: July 2026</p>
+            <p class="mt-2 text-sm text-zinc-500">Last updated: August 2026</p>
         </div>
 
-        <!-- Solo Developer Content -->
         <div class="space-y-10 text-zinc-300 font-light leading-relaxed">
             <p class="text-lg text-zinc-400">
-                Hi there. We built Blockade to help you recapture your focus, not to collect or monetize your personal data. Here is the absolute, no-nonsense truth about how Blockade handles your privacy.
+                Blockade is built to help you reclaim your focus and master your digital habits—not to monitor your personal life or monetize your activity. Below is a plain-English, transparent breakdown of what information we handle, how permissions are used, and how your privacy is safeguarded.
             </p>
 
             <section>
-                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">1. Local Browsing Data Rule (Zero Browsing Logs)</h2>
+                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">1. Account Information & Cloud Sync</h2>
                 <p>
-                    Your browsing history is entirely your business. Your manually configured domain blocklists, active bypass timer timestamps, and configuration preferences are processed and stored exclusively inside your browser memory container using <code class="text-xs text-brand-crimson bg-zinc-900 px-1.5 py-0.5 rounded font-mono">chrome.storage.local</code>. Blockade **never** tracks, logs, transfers, or uploads the websites you visit or the domains you choose to block to any external servers.
+                    When you sign in using <strong>Google Sign-In</strong> or an <strong>Email Verification Code (OTP)</strong>, we store only your email address and an encrypted session token to identify your account, verify your subscription tier (such as <code class="text-xs text-zinc-400 bg-zinc-900 px-1 py-0.5 rounded font-mono">FREE_PASS</code> or <code class="text-xs text-zinc-400 bg-zinc-900 px-1 py-0.5 rounded font-mono">PRO_PASS</code>), and securely sync your custom domain rules and focus schedules across your signed-in workspaces. We never access your Google password, contacts, drive files, or other account assets.
                 </p>
             </section>
 
             <section>
-                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">2. Cloud-Based License Verification</h2>
+                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">2. Web Browsing & Tab Permissions</h2>
                 <p>
-                    Blockade utilizes a highly secure, cloud-hosted backend infrastructure (via Supabase) solely to verify your account's subscription tier. When the extension starts up or runs its automated background synchronization routine, it sends a localized network handshake containing your distinct, randomized Chrome Extension Runtime ID. This handshake reads your corresponding activation tier (such as <code class="text-xs text-zinc-400 bg-zinc-900 px-1 py-0.5 rounded font-mono">FREE_PASS</code>, <code class="text-xs text-zinc-400 bg-zinc-900 px-1 py-0.5 rounded font-mono">ANNUAL_PASS</code>, or <code class="text-xs text-zinc-400 bg-zinc-900 px-1 py-0.5 rounded font-mono">LIFETIME_PASS</code>) and subscription expiration timestamps. This data is used exclusively for feature access control and is never linked to your local blocklist setups.
+                    Blockade <strong>never tracks, logs, records, or sells your browsing history</strong>. 
                 </p>
-            </section>
-
-            <section>
-                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">3. Extension Permissions Disclosure</h2>
-                <p>
-                    To insulate your attention spans cleanly, Blockade leverages sandboxed Manifest V3 APIs to operate efficiently and transparently:
-                </p>
-                <ul class="list-disc list-inside mt-3 space-y-2 pl-2 text-zinc-400">
-                    <li><strong class="text-zinc-200 font-medium">declarativeNetRequest:</strong> Instructs the browser to drop network connectivity to targeted distractions completely locally, without reading raw page contents or network payloads.</li>
-                    <li><strong class="text-zinc-200 font-medium">tabs:</strong> Used exclusively to evaluate if a restricted site is open in an unrefreshed window when updating preferences, allowing instant focus routing.</li>
-                    <li><strong class="text-zinc-200 font-medium">alarms & storage:</strong> Scheduled locally to run background cooldown timers and maintain your personal blocklist records across browser restarts.</li>
+                <ul class="list-disc pl-5 mt-2 space-y-2 text-zinc-400">
+                    <li>
+                        <strong>Tab Access (<code class="text-xs text-brand-cyan bg-zinc-900 px-1.5 py-0.5 rounded font-mono">"tabs"</code>):</strong> Used exclusively on your local device to check whether a website on your blocklist is already open when a rule is activated, enabling the extension to redirect that specific tab to your mindful intervention screen.
+                    </li>
+                    <li>
+                        <strong>Declarative Net Request:</strong> Chrome's local filtering engine blocks network requests directly on your device. The content, form data, keystrokes, and text inside websites you visit are never read, inspected, or transmitted.
+                    </li>
                 </ul>
-                <p class="mt-3">
-                    No third-party behavioral analytics, telemetry frameworks, session eavesdropping scripts, or external data scrapers are present in the source code.
+            </section>
+
+            <section>
+                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">3. Multi-Device DNS Protection Hub</h2>
+                <p>
+                    For Pro users utilizing the Multi-Device Protection Hub (powered via encrypted NextDNS profiles), domain rules you add to your blocklist are pushed to your personal DNS endpoint. This allows filtering across mobile OS, desktop clients, and external browsers. NextDNS manages these lookups according to zero-log privacy best practices, and Blockade never inspects personal network traffic flowing through your devices.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">4. Zero Data Selling & Analytics Transparency</h2>
+                <p>
+                    We do not use behavioral tracking trackers, third-party advertising scrapers, or session recording scripts. Your domain lists, focus intervals, and temporary bypass states exist strictly to operate your productivity environment.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">5. Data Retention & Deletion</h2>
+                <p>
+                    You have complete control over your configurations. Deleting a rule or schedule removes it locally and from your cloud database profile immediately. To completely erase your account and associated synced data, contact us at <a href="mailto:blockade.support@proappkart.com" class="text-brand-cyan underline">blockade.support@proappkart.com</a>.
                 </p>
             </section>
         </div>
