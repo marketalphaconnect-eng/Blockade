@@ -3,116 +3,152 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blockade — Shield Active</title>
+  <title>Blockade — Access Restricted</title>
   <style>
-    body { 
-      background: #09090b; 
-      color: #ffffff; 
+    :root {
+      --bg-main: #09090b;
+      --bg-sidebar: #121214;
+      --border-color: #27272a;
+      --text-main: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --accent-glow: #06b6d4;
+    }
+
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+    }
+
+    body { 
+      background-color: var(--bg-main); 
+      color: var(--text-main); 
+      height: 100vh; 
       display: flex; 
       align-items: center; 
       justify-content: center; 
-      height: 100vh; 
-      margin: 0; 
+      overflow: hidden; 
     }
-    .box { 
-      text-align: center; 
-      max-width: 480px; 
-      width: 90%; 
-      padding: 40px 30px; 
-      background: #121214; 
-      border: 1px solid #222226; 
+
+    .modal-card { 
+      background-color: var(--bg-sidebar); 
+      border: 1px solid var(--border-color); 
+      width: 440px; 
+      max-width: 90%; 
+      padding: 40px 32px; 
       border-radius: 12px; 
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6); 
+      text-align: center; 
+      position: relative;
     }
-    .icon-wrapper { 
-      margin: 0 auto 24px; 
+
+    .close-x-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      color: var(--text-muted);
+      background: none;
+      border: none;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 4px;
+      transition: color 0.2s;
     }
-    .icon-wrapper img {
-      width: 64px;
-      height: 64px;
-      object-fit: contain;
+    .close-x-btn:hover {
+      color: var(--text-main);
     }
-    h1 { 
+
+    .icon-container { 
+      display: flex; 
+      justify-content: center; 
+      margin-bottom: 20px; 
+    }
+
+    h2 { 
       color: #ffffff; 
-      font-size: 24px; 
-      margin: 0 0 12px; 
-      font-weight: 700; 
-      letter-spacing: -0.025em; 
+      font-size: 22px; 
+      font-weight: 700;
+      margin-bottom: 8px; 
+      letter-spacing: -0.3px;
     }
-    .target-domain { 
-      color: #ffc107; 
-      font-family: monospace; 
-      font-size: 14px; 
-      background: #09090b; 
-      padding: 6px 12px; 
-      border-radius: 6px; 
-      border: 1px solid #222226; 
-      display: inline-block; 
-      margin-bottom: 24px; 
-    }
+
     p { 
-      color: #a1a1aa; 
+      color: var(--text-muted); 
       font-size: 14px; 
-      line-height: 1.6; 
-      margin: 0 0 28px; 
-    }
-    .notice-box { 
-      background: #1c1917; 
-      border-left: 3px solid #DC3545; 
-      padding: 14px 16px; 
-      border-radius: 0 8px 8px 0; 
-      text-align: left; 
+      line-height: 1.5; 
       margin-bottom: 24px; 
-      color: #e4e4e7; 
-      font-size: 13px; 
-      line-height: 1.5;
     }
-    /* Fixed UI: Changed from an active, clickable button to a solid, descriptive informational shield banner */
-    .status-banner { 
+
+    .target-domain {
+      color: var(--accent-glow);
+      font-weight: 700;
+      word-break: break-all;
+    }
+
+    .primary-btn { 
       width: 100%; 
-      padding: 14px; 
-      background: rgba(220, 53, 69, 0.1); 
-      color: #DC3545; 
-      border: 1px solid rgba(220, 53, 69, 0.2);
-      border-radius: 6px; 
-      font-weight: 600; 
+      background-color: var(--accent-glow); 
+      color: #000000; 
+      font-weight: 700; 
       font-size: 14px; 
-      box-sizing: border-box; 
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
+      padding: 12px; 
+      border: none; 
+      border-radius: 6px; 
+      cursor: pointer; 
+      transition: opacity 0.2s; 
+    }
+    .primary-btn:hover { 
+      opacity: 0.9; 
     }
   </style>
 </head>
 <body>
 
-  <div class="box">
-    <div class="icon-wrapper">
-      <img src="BlockadeIcon.png" alt="Blockade Logo" onerror="this.style.display='none';">
+  <div class="modal-card">
+    <button class="close-x-btn" id="closeXBtn" title="Close Tab">&times;</button>
+    
+    <div class="icon-container">
+      <img src="https://api.iconify.design/ic:twotone-gpp-good.svg?color=%23ffffff" width="68" height="68" alt="Access Restricted Shield" />
     </div>
-    
-    <h1>Blockade Shield Active</h1>
-    <div class="target-domain" id="domainDisplay">Website Blocked</div>
-    
-    <div class="notice-box">
-      <strong>Incognito Profile Restriction:</strong><br>
-      To preserve strict system isolation protocols, Chrome limits interactive local extension scripts inside private window frames.
-    </div>
-    
+
+    <h2>Access Restricted</h2>
     <p>
-      This ecosystem has been intercepted by your active focus configurations. To generate a temporary time allowance pass or modify filters, open a standard browser window.
+      Blockade has blocked <strong id="blockedDomainLabel" class="target-domain">this site</strong> for your own productivity goals.
     </p>
-    
-    <div class="status-banner">Connection Terminated by Blockade</div>
+
+    <button class="primary-btn" id="closeTabBtn">Close Tab</button>
   </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // Decode domain from ?target= or ?domain= URL query param
       const urlParams = new URLSearchParams(window.location.search);
-      const domain = urlParams.get("target");
+      const domain = urlParams.get("target") || urlParams.get("domain");
       if (domain) {
-        document.getElementById("domainDisplay").textContent = decodeURIComponent(domain);
+        document.getElementById("blockedDomainLabel").textContent = decodeURIComponent(domain);
       }
+
+      // Close tab action for both the main button and the top-right "X"
+      const closeIncognitoTab = async () => {
+        try {
+          if (chrome && chrome.tabs && chrome.tabs.getCurrent) {
+            const currentTab = await chrome.tabs.getCurrent();
+            if (currentTab && currentTab.id) {
+              await chrome.tabs.remove(currentTab.id);
+              return;
+            }
+          }
+        } catch (e) {}
+        window.close();
+      };
+
+      const closeTabBtn = document.getElementById("closeTabBtn");
+      const closeXBtn = document.getElementById("closeXBtn");
+
+      if (closeTabBtn) closeTabBtn.onclick = closeIncognitoTab;
+      if (closeXBtn) closeXBtn.onclick = closeIncognitoTab;
     });
   </script>
 
