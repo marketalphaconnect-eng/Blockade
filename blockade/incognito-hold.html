@@ -31,7 +31,6 @@
       overflow: hidden; 
     }
 
-    /* Flexible width that expands with sentence length */
     .modal-card { 
       background-color: var(--bg-sidebar); 
       border: 1px solid var(--border-color); 
@@ -42,24 +41,6 @@
       border-radius: 12px; 
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6); 
       text-align: center; 
-      position: relative;
-    }
-
-    .close-x-btn {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      color: var(--text-muted);
-      background: none;
-      border: none;
-      font-size: 20px;
-      line-height: 1;
-      cursor: pointer;
-      padding: 4px;
-      transition: color 0.2s;
-    }
-    .close-x-btn:hover {
-      color: var(--text-main);
     }
 
     .icon-container { 
@@ -76,11 +57,11 @@
       letter-spacing: -0.3px;
     }
 
-    p { 
+    p.blocked-desc { 
       color: var(--text-muted); 
       font-size: 14px; 
       line-height: 1.5; 
-      margin-bottom: 24px; 
+      margin-bottom: 20px; 
       white-space: nowrap;
     }
 
@@ -90,87 +71,42 @@
       word-break: break-all;
     }
 
-    .primary-btn { 
-      width: 100%; 
-      background-color: var(--accent-glow); 
-      color: #000000; 
-      font-weight: 700; 
-      font-size: 14px; 
-      padding: 12px; 
-      border: none; 
-      border-radius: 6px; 
-      cursor: pointer; 
-      transition: opacity 0.2s; 
-    }
-    .primary-btn:hover { 
-      opacity: 0.9; 
+    .info-box {
+      background: #18181b;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 14px 16px;
+      color: #d4d4d8;
+      font-size: 13px;
+      line-height: 1.5;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
   <div class="modal-card">
-    <button class="close-x-btn" id="closeXBtn" title="Close Tab">&times;</button>
-    
     <div class="icon-container">
       <img src="https://api.iconify.design/ic:twotone-gpp-good.svg?color=%23ffffff" width="68" height="68" alt="Access Restricted Shield" />
     </div>
 
     <h2>Access Restricted</h2>
-    <p>
+    <p class="blocked-desc">
       Blockade has blocked <strong id="blockedDomainLabel" class="target-domain">this site</strong> for your own productivity goals.
     </p>
 
-    <button class="primary-btn" id="closeTabBtn">Close Tab</button>
+    <div class="info-box">
+      💡 To check or manage your active domain rules, open the <strong>Blockade Dashboard</strong> from your standard browser window.
+    </div>
   </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // Decode domain from URL query params
       const urlParams = new URLSearchParams(window.location.search);
       const domain = urlParams.get("target") || urlParams.get("domain");
       if (domain) {
         document.getElementById("blockedDomainLabel").textContent = decodeURIComponent(domain);
       }
-
-      // Close tab handler with multiple robust fallback paths
-      const closeIncognitoTab = async (e) => {
-        if (e) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
-
-        // Method 1: Query active tab in current window
-        try {
-          if (chrome && chrome.tabs && chrome.tabs.query) {
-            const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
-            if (tabs && tabs.length > 0 && tabs[0].id) {
-              await chrome.tabs.remove(tabs[0].id);
-              return;
-            }
-          }
-        } catch (err) {}
-
-        // Method 2: Fallback to getCurrent tab
-        try {
-          if (chrome && chrome.tabs && chrome.tabs.getCurrent) {
-            const currentTab = await chrome.tabs.getCurrent();
-            if (currentTab && currentTab.id) {
-              await chrome.tabs.remove(currentTab.id);
-              return;
-            }
-          }
-        } catch (err) {}
-
-        // Method 3: Standard window.close
-        window.close();
-      };
-
-      const closeTabBtn = document.getElementById("closeTabBtn");
-      const closeXBtn = document.getElementById("closeXBtn");
-
-      if (closeTabBtn) closeTabBtn.addEventListener("click", closeIncognitoTab);
-      if (closeXBtn) closeXBtn.addEventListener("click", closeIncognitoTab);
     });
   </script>
 
