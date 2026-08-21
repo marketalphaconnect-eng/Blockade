@@ -31,12 +31,14 @@
       overflow: hidden; 
     }
 
+    /* Flexible width that expands with sentence length */
     .modal-card { 
       background-color: var(--bg-sidebar); 
       border: 1px solid var(--border-color); 
-      width: 440px; 
-      max-width: 90%; 
-      padding: 40px 32px; 
+      width: fit-content;
+      min-width: 420px;
+      max-width: 580px; 
+      padding: 40px 36px; 
       border-radius: 12px; 
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6); 
       text-align: center; 
@@ -79,6 +81,7 @@
       font-size: 14px; 
       line-height: 1.5; 
       margin-bottom: 24px; 
+      white-space: nowrap;
     }
 
     .target-domain {
@@ -123,15 +126,32 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // Decode domain from ?target= or ?domain= URL query param
+      // Decode domain from URL query params
       const urlParams = new URLSearchParams(window.location.search);
       const domain = urlParams.get("target") || urlParams.get("domain");
       if (domain) {
         document.getElementById("blockedDomainLabel").textContent = decodeURIComponent(domain);
       }
 
-      // Close tab action for both the main button and the top-right "X"
-      const closeIncognitoTab = async () => {
+      // Close tab handler with multiple robust fallback paths
+      const closeIncognitoTab = async (e) => {
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+
+        // Method 1: Query active tab in current window
+        try {
+          if (chrome && chrome.tabs && chrome.tabs.query) {
+            const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
+            if (tabs && tabs.length > 0 && tabs[0].id) {
+              await chrome.tabs.remove(tabs[0].id);
+              return;
+            }
+          }
+        } catch (err) {}
+
+        // Method 2: Fallback to getCurrent tab
         try {
           if (chrome && chrome.tabs && chrome.tabs.getCurrent) {
             const currentTab = await chrome.tabs.getCurrent();
@@ -140,15 +160,17 @@
               return;
             }
           }
-        } catch (e) {}
+        } catch (err) {}
+
+        // Method 3: Standard window.close
         window.close();
       };
 
       const closeTabBtn = document.getElementById("closeTabBtn");
       const closeXBtn = document.getElementById("closeXBtn");
 
-      if (closeTabBtn) closeTabBtn.onclick = closeIncognitoTab;
-      if (closeXBtn) closeXBtn.onclick = closeIncognitoTab;
+      if (closeTabBtn) closeTabBtn.addEventListener("click", closeIncognitoTab);
+      if (closeXBtn) closeXBtn.addEventListener("click", closeIncognitoTab);
     });
   </script>
 
