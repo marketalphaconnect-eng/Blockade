@@ -540,17 +540,25 @@
         let toastTimeout;
         let prefilledEmail = "";
         
-        // Auto-scroll fix for extension redirects containing query parameters after the hash & auto-capture email
+        // Auto-scroll fix and robust email extraction (handles query string AND hash parameters)
         window.addEventListener('DOMContentLoaded', () => {
-            // 1. Capture 'email' query parameter from URL (if redirected from extension)
-            const urlParams = new URLSearchParams(window.location.search);
-            const emailParam = urlParams.get('email');
-            if (emailParam) {
-                prefilledEmail = decodeURIComponent(emailParam);
+            // 1. Check standard query params (?email=...)
+            let urlParams = new URLSearchParams(window.location.search);
+            let emailParam = urlParams.get('email');
+
+            // 2. If not found, check inside the hash (#pricing?email=...)
+            if (!emailParam && window.location.hash.includes('?')) {
+                const hashQuery = window.location.hash.substring(window.location.hash.indexOf('?') + 1);
+                const hashParams = new URLSearchParams(hashQuery);
+                emailParam = hashParams.get('email');
             }
 
-            // 2. Smooth scroll to pricing section
-            if (window.location.href.includes('#pricing') || emailParam) {
+            if (emailParam) {
+                prefilledEmail = decodeURIComponent(emailParam).trim();
+            }
+
+            // 3. Smooth scroll to pricing section
+            if (window.location.href.includes('pricing') || emailParam) {
                 const pricingSection = document.getElementById('pricing');
                 if (pricingSection) {
                     setTimeout(() => {
@@ -633,14 +641,16 @@
             const errorEl = document.getElementById('checkoutError');
 
             selectedPlanInput.value = planKey;
-            planTitle.textContent = planKey === 'annual_pass' ? 'Upgrade to Annual Pass ($12/yr)' : 'Upgrade to Lifetime Pass ($20)';
+            planTitle.textContent = planKey === 'annual_pass' ? 'Upgrade to Annual Pass ($35/yr)' : 'Upgrade to Lifetime Pass ($60)';
 
             if (prefilledEmail) {
                 emailInput.value = prefilledEmail;
                 emailConfirmInput.value = "";
+                emailConfirmInput.focus();
             } else {
                 emailInput.value = "";
                 emailConfirmInput.value = "";
+                emailInput.focus();
             }
             
             errorEl.classList.add('hidden');
@@ -664,10 +674,10 @@
                 return;
             }
 
-            // Direct mapping to Dodo Payments Checkout links
+            // Pre-fills customer email on Dodo Checkout using proper URL parameter joining (&)
             const dodoCheckoutUrls = {
-                'annual_pass': `https://test.checkout.dodopayments.com/buy/pdt_0NlIMPmVS5g7se9podqc8?quantity=1?email=${encodeURIComponent(email)}`,
-                'lifetime_pass': `https://test.checkout.dodopayments.com/buy/pdt_0NixRJmsrTwPj3i5WhwMA?quantity=1?email=${encodeURIComponent(email)}`
+                'annual_pass': `https://test.checkout.dodopayments.com/buy/pdt_0NlIMPmVS5g7se9podqc8?quantity=1&email=${encodeURIComponent(email)}`,
+                'lifetime_pass': `https://test.checkout.dodopayments.com/buy/pdt_0NixRJmsrTwPj3i5WhwMA?quantity=1&email=${encodeURIComponent(email)}`
             };
 
             const targetUrl = dodoCheckoutUrls[planKey];
@@ -677,6 +687,7 @@
                 alert("Checkout route configuration in progress.");
             }
         }
+    </script>
     </script>
 </body>
 </html>
