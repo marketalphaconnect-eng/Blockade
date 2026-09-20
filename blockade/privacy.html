@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy | Blockade</title>
-    <!-- Tab Favicon Configuration Layer -->
-    <link rel="icon" type="image/png" href="Plogo.png">
+    <title>Privacy Policy | Blockade by Proappkart</title>
+    <link rel="icon" type="image/png" href="../Plogo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -13,7 +12,13 @@
                 extend: {
                     colors: { 
                         zinc: { 950: '#09090b' }, 
-                        brand: { cyan: '#06b6d4', crimson: '#DC3545', crimsonHover: '#BB2D3B' } 
+                        brand: { 
+                            cyan: '#06b6d4', 
+                            crimson: '#DC3545', 
+                            crimsonHover: '#BB2D3B',
+                            amberYellow: '#FFC107',
+                            amberYellowHover: '#E0A800'
+                        } 
                     },
                     fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
@@ -21,80 +26,147 @@
         }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
 </head>
-<body class="bg-zinc-950 text-zinc-100 antialiased font-sans">
+<body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-brand-crimson selection:text-white relative">
 
-    <!-- Simple Nav Header -->
-    <header class="border-b border-zinc-800/60 bg-zinc-950/80 sticky top-0 backdrop-blur-md z-50">
-        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html" class="text-sm font-semibold tracking-tight hover:text-zinc-300 transition-colors flex items-center gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                Back to Blockade
-            </a>
-            <span class="text-xs text-zinc-500 font-medium tracking-wider uppercase">Privacy Policy</span>
+    <!-- Corporate Navigation Bar Aligned with Master Portfolio -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-zinc-950/90 border-b border-zinc-800/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <a href="../index.html" class="block">
+                    <img src="../proappkartlogo.png" alt="Proappkart Logo" class="h-9 w-auto max-w-full object-contain block">
+                </a>
+                <span class="text-zinc-700 font-light text-xl">|</span>
+                <span class="text-xs uppercase tracking-widest text-zinc-400 font-semibold hidden sm:inline-block">Building Trust</span>
+            </div>
+            
+            <nav class="flex items-center space-x-8 text-sm font-medium text-zinc-400">
+                <a href="../index.html#portfolio" class="hover:text-white transition-colors">Our Products</a>
+                <a href="../index.html#philosophy" class="hover:text-white transition-colors">Our Philosophy</a>
+            </nav>
+        </div>
+
+        <!-- Inset Floating Sub-Navbar -->
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 mb-3">
+            <div class="bg-zinc-900/90 border border-zinc-800/70 shadow-lg backdrop-blur-md px-4 sm:px-6 py-2 rounded-2xl flex items-center justify-between">
+                
+                <!-- Product Identifier -->
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <img src="BlockadeIcon.png" alt="Blockade Icon" class="h-6 w-6 object-contain rounded-md shadow group-hover:scale-105 transition-transform">
+                    <div class="flex items-center space-x-2">
+                        <span class="font-bold text-sm text-white tracking-tight">Blockade</span>
+                        <span class="text-[10px] font-semibold text-brand-amberYellow bg-brand-amberYellow/10 border border-brand-amberYellow/30 px-1.5 py-0.2 rounded hidden md:inline-block">Privacy Policy</span>
+                    </div>
+                </a>
+
+                <!-- Floating CTA Action Buttons -->
+                <div class="flex items-center space-x-3">
+                    <a href="index.html" class="text-xs font-medium text-zinc-300 hover:text-white bg-zinc-800 hover:bg-zinc-700 px-3 py-1.5 rounded-lg border border-zinc-700 transition-colors flex items-center gap-1.5">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        Back to Blockade
+                    </a>
+                    <a href="index.html#pricing" class="text-xs font-bold text-black bg-brand-amberYellow hover:bg-brand-amberYellowHover px-3 py-1.5 rounded-lg transition-colors shadow">
+                        Go Premium
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
-
-    <main class="max-w-3xl mx-auto px-6 pt-16 pb-24">
+	
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24">
         <!-- Page Title -->
         <div class="border-b border-zinc-900 pb-8 mb-12">
-            <h1 class="text-3xl font-bold text-white tracking-tight">Privacy Policy</h1>
-            <p class="mt-2 text-sm text-zinc-500">Last updated: August 2026</p>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-crimson/10 border border-brand-crimson/30 text-xs font-semibold text-brand-crimson mb-4">
+                Transparency First
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Privacy Policy</h1>
+            <p class="mt-2 text-sm text-zinc-400">Version 1.0 <span class="mx-1 text-zinc-600">•</span> Last updated: 27th August 2026</p>
         </div>
 
         <div class="space-y-10 text-zinc-300 font-light leading-relaxed">
-            <p class="text-lg text-zinc-400">
-                Blockade is built to help you reclaim your focus and master your digital habits—not to monitor your personal life or monetize your activity. Below is a plain-English, transparent breakdown of what information we handle, how permissions are used, and how your privacy is safeguarded.
+            <p class="text-base sm:text-lg text-zinc-400">
+                Blockade is engineered to help you conquer digital distraction—not to monitor your activity or monetize your personal information. We adhere to strict zero-tracking standards. Below is a transparent breakdown of what information is handled and how your privacy is protected.
             </p>
 
-            <section>
-                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">1. Account Information & Cloud Sync</h2>
-                <p>
-                    When you sign in using <strong>Google Sign-In</strong> or an <strong>Email Verification Code (OTP)</strong>, we store only your email address and an encrypted session token to identify your account, verify your subscription tier (such as <code class="text-xs text-zinc-400 bg-zinc-900 px-1 py-0.5 rounded font-mono">FREE_PASS</code> or <code class="text-xs text-zinc-400 bg-zinc-900 px-1 py-0.5 rounded font-mono">PRO_PASS</code>), and securely sync your custom domain rules and focus schedules across your signed-in workspaces. We never access your Google password, contacts, drive files, or other account assets.
+            <section class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 sm:p-8">
+                <h2 class="text-lg font-semibold text-white tracking-tight mb-3">1. Account Authentication & Multi-Device Sync</h2>
+                <p class="text-sm leading-relaxed">
+                    When you authenticate using <strong>Google Sign-In</strong> or an <strong>Email Verification Code (OTP)</strong>, we store only your email address and an encrypted session token. This is used strictly to identify your account, verify your license tier (<code class="text-xs text-brand-amberYellow bg-zinc-950 border border-zinc-800 px-1.5 py-0.5 rounded font-mono">14 DAY FREE PASS</code>, <code class="text-xs text-brand-amberYellow bg-zinc-950 border border-zinc-800 px-1.5 py-0.5 rounded font-mono">6 MONTH PASS</code>, or <code class="text-xs text-brand-amberYellow bg-zinc-950 border border-zinc-800 px-1.5 py-0.5 rounded font-mono">ANNUAL PASS</code>), and sync your custom block rules and focus schedules across your devices. We never access passwords, contacts, or external Google profile data.
                 </p>
             </section>
 
-            <section>
-                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">2. Web Browsing & Tab Permissions</h2>
-                <p>
+            <section class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 sm:p-8">
+                <h2 class="text-lg font-semibold text-white tracking-tight mb-3">2. Web Browsing & Local Tab Permissions</h2>
+                <p class="text-sm leading-relaxed">
                     Blockade <strong>never tracks, logs, records, or sells your browsing history</strong>. 
                 </p>
-                <ul class="list-disc pl-5 mt-2 space-y-2 text-zinc-400">
+                <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-zinc-400">
                     <li>
-                        <strong>Tab Access (<code class="text-xs text-brand-cyan bg-zinc-900 px-1.5 py-0.5 rounded font-mono">"tabs"</code>):</strong> Used exclusively on your local device to check whether a website on your blocklist is already open when a rule is activated, enabling the extension to redirect that specific tab to your mindful intervention screen.
+                        <strong>Tab Access (<code class="text-xs text-brand-cyan bg-zinc-950 border border-zinc-800 px-1.5 py-0.5 rounded font-mono">"tabs"</code>):</strong> Used exclusively within your local browser runtime to detect when an active tab matches a rule on your blocklist and redirect it to the intervention screen.
                     </li>
                     <li>
-                        <strong>Declarative Net Request:</strong> Chrome's local filtering engine blocks network requests directly on your device. The content, form data, keystrokes, and text inside websites you visit are never read, inspected, or transmitted.
+                        <strong>Declarative Net Request Engine:</strong> Chrome's local filtering engine handles network matching directly on your machine. Page content, form inputs, passwords, keystrokes, and text inside websites are never read or transmitted.
                     </li>
                 </ul>
             </section>
 
-            <section>
-                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">3. Multi-Device DNS Protection Hub</h2>
-                <p>
-                    For Pro users utilizing the Multi-Device Protection Hub (powered via encrypted NextDNS profiles), domain rules you add to your blocklist are pushed to your personal DNS endpoint. This allows filtering across mobile OS, desktop clients, and external browsers. NextDNS manages these lookups according to zero-log privacy best practices, and Blockade never inspects personal network traffic flowing through your devices.
+            <section class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 sm:p-8">
+                <h2 class="text-lg font-semibold text-white tracking-tight mb-3">3. Multi-Device Private DNS Network Sync</h2>
+                <p class="text-sm leading-relaxed">
+                    For Pro users utilizing cross-device protection, domain rules are synchronized to your dedicated, encrypted Private DNS endpoint. This enables filtering across Android, iOS, Windows, macOS, and ChromeOS with zero logs retained. Blockade never inspects or proxies your personal network payload traffic.
                 </p>
             </section>
 
-            <section>
-                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">4. Zero Data Selling & Analytics Transparency</h2>
-                <p>
-                    We do not use behavioral tracking trackers, third-party advertising scrapers, or session recording scripts. Your domain lists, focus intervals, and temporary bypass states exist strictly to operate your productivity environment.
+            <section class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 sm:p-8">
+                <h2 class="text-lg font-semibold text-white tracking-tight mb-3">4. Zero Data Selling & Analytics Transparency</h2>
+                <p class="text-sm leading-relaxed">
+                    We do not use advertising trackers, behavioral scripts, or session recording scrapers. Your blocklists, focus schedule intervals, and bypass timestamps exist exclusively to run your productivity environment.
                 </p>
             </section>
 
-            <section>
-                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">5. Data Retention & Deletion</h2>
-                <p>
-                    You have complete control over your configurations. Deleting a rule or schedule removes it locally and from your cloud database profile immediately. To completely erase your account and associated synced data, contact us at <a href="mailto:blockade.support@proappkart.com" class="text-brand-cyan underline">blockade.support@proappkart.com</a>.
+            <section class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 sm:p-8">
+                <h2 class="text-lg font-semibold text-white tracking-tight mb-3">5. Data Retention, Self-Service Reset & Infrastructure Lifecycle</h2>
+                <p class="text-sm leading-relaxed">
+                    You have complete sovereignty over your information. We maintain clear data lifecycle standards:
                 </p>
+                <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-zinc-400">
+                    <li>
+                        <strong>Active Usage:</strong> Your custom domain blocklists, focus schedules, and multi-device DNS configurations are securely synced to maintain uninterrupted focus enforcement across your authorized devices.
+                    </li>
+                    <li>
+                        <strong>Self-Service Rule Reset:</strong> You can wipe all active domain rules, categories, focus schedules, and remote DNS denylists directly from the Support tab inside the dashboard at any time without terminating your paid subscription or losing remaining pass duration.
+                    </li>
+                    <li>
+                        <strong>License Expiration (Soft Deactivation):</strong> When a paid license expires without renewal, active domain rules on your external Private DNS endpoint are cleared immediately to prevent accidental network blockages, while retaining your configuration schema locally and in your account profile.
+                    </li>
+                    <li>
+                        <strong>Infrastructure Purge (Hard Deletion):</strong> Following an expiration grace period of 7 days, linked server-side blocklists, focus schedules, and remote Private DNS profile containers are permanently erased from cloud infrastructure to reclaim system resources. Your core account profile and license history remain on file to allow seamless re-activation and receipt access.
+                    </li>
+                    <li>
+                        <strong>Permanent Account Deletion(Right to Erasure):</strong> Upon receiving an explicit deletion request via email, to <a href="mailto:blockade.support@proappkart.com" class="text-brand-cyan underline">blockade.support@proappkart.com</a>, we perform a complete hard purge—permanently deleting your authentication identity, license ledger, workspace rules, focus schedules, and remote DNS containers.
+                    </li>
+                </ul>
             </section>
         </div>
     </main>
 
-    <!-- Minimal Footer -->
-    <footer class="border-t border-zinc-900 bg-zinc-950 text-zinc-600 text-xs py-8 text-center">
-        © 2026 Proappkart Technologies Inc. All structural rights reserved.
+    <!-- Professional Footer -->
+    <footer class="border-t border-zinc-900 bg-zinc-950 text-zinc-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-2">
+                <span class="font-semibold text-zinc-400 tracking-tight">Proappkart Portal</span>
+                <span class="text-zinc-700">|</span>
+                <span>© 2026 Proappkart Technologies Inc. All structural rights reserved.</span>
+            </div>
+            
+            <div class="flex items-center space-x-6 text-zinc-600">
+                <a href="terms.html" class="hover:text-zinc-400 transition-colors">Terms of Operation</a>
+                <span>Enterprise Framework Utilities</span>
+            </div>
+        </div>
     </footer>
 
 </body>

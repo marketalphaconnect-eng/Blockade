@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Operation | Blockade</title>
-    <!-- Tab Favicon Configuration Layer -->
-    <link rel="icon" type="image/png" href="Plogo.png">
+    <title>Terms of Operation | Blockade by Proappkart</title>
+    <link rel="icon" type="image/png" href="../Plogo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -13,7 +12,13 @@
                 extend: {
                     colors: { 
                         zinc: { 950: '#09090b' }, 
-                        brand: { cyan: '#06b6d4', crimson: '#DC3545', crimsonHover: '#BB2D3B' } 
+                        brand: { 
+                            cyan: '#06b6d4', 
+                            crimson: '#DC3545', 
+                            crimsonHover: '#BB2D3B',
+                            amberYellow: '#FFC107',
+                            amberYellowHover: '#E0A800'
+                        } 
                     },
                     fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
@@ -21,76 +26,142 @@
         }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
 </head>
-<body class="bg-zinc-950 text-zinc-100 antialiased font-sans">
+<body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-brand-crimson selection:text-white relative">
 
-    <!-- Simple Nav Header -->
-    <header class="border-b border-zinc-800/60 bg-zinc-950/80 sticky top-0 backdrop-blur-md z-50">
-        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html" class="text-sm font-semibold tracking-tight hover:text-zinc-300 transition-colors flex items-center gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                Back to Blockade
-            </a>
-            <span class="text-xs text-zinc-500 font-medium tracking-wider uppercase">Terms of Operation</span>
+    <!-- Corporate Navigation Bar Aligned with Master Portfolio -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-zinc-950/90 border-b border-zinc-800/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <a href="../index.html" class="block">
+                    <img src="../proappkartlogo.png" alt="Proappkart Logo" class="h-9 w-auto max-w-full object-contain block">
+                </a>
+                <span class="text-zinc-700 font-light text-xl">|</span>
+                <span class="text-xs uppercase tracking-widest text-zinc-400 font-semibold hidden sm:inline-block">Building Trust</span>
+            </div>
+            
+            <nav class="flex items-center space-x-8 text-sm font-medium text-zinc-400">
+                <a href="../index.html#portfolio" class="hover:text-white transition-colors">Our Products</a>
+                <a href="../index.html#philosophy" class="hover:text-white transition-colors">Our Philosophy</a>
+            </nav>
+        </div>
+
+        <!-- Inset Floating Sub-Navbar -->
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 mb-3">
+            <div class="bg-zinc-900/90 border border-zinc-800/70 shadow-lg backdrop-blur-md px-4 sm:px-6 py-2 rounded-2xl flex items-center justify-between">
+                
+                <!-- Product Identifier -->
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <img src="BlockadeIcon.png" alt="Blockade Icon" class="h-6 w-6 object-contain rounded-md shadow group-hover:scale-105 transition-transform">
+                    <div class="flex items-center space-x-2">
+                        <span class="font-bold text-sm text-white tracking-tight">Blockade</span>
+                        <span class="text-[10px] font-semibold text-brand-amberYellow bg-brand-amberYellow/10 border border-brand-amberYellow/30 px-1.5 py-0.2 rounded hidden md:inline-block">Terms of Operation</span>
+                    </div>
+                </a>
+
+                <!-- Floating CTA Action Buttons -->
+                <div class="flex items-center space-x-3">
+                    <a href="index.html" class="text-xs font-medium text-zinc-300 hover:text-white bg-zinc-800 hover:bg-zinc-700 px-3 py-1.5 rounded-lg border border-zinc-700 transition-colors flex items-center gap-1.5">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        Back to Blockade
+                    </a>
+                    <a href="index.html#pricing" class="text-xs font-bold text-black bg-brand-amberYellow hover:bg-brand-amberYellowHover px-3 py-1.5 rounded-lg transition-colors shadow">
+                        Go Premium
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main class="max-w-3xl mx-auto px-6 pt-16 pb-24">
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24">
         <!-- Page Title -->
         <div class="border-b border-zinc-900 pb-8 mb-12">
-            <h1 class="text-3xl font-bold text-white tracking-tight">Terms of Operation</h1>
-            <p class="mt-2 text-sm text-zinc-500">Last updated: August 2026</p>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-crimson/10 border border-brand-crimson/30 text-xs font-semibold text-brand-crimson mb-4">
+                Operational Framework
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Terms of Operation</h1>
+            <p class="mt-2 text-sm text-zinc-400">Version 1.0 <span class="mx-1 text-zinc-600">•</span> Last updated: 27th August 2026</p>
         </div>
 
         <div class="space-y-10 text-zinc-300 font-light leading-relaxed">
-            <p class="text-lg text-zinc-400">
-                Welcome to Blockade. By installing our extension, using our command dashboard, or accessing our services, you agree to these clear and straightforward terms of operation.
+            <p class="text-base sm:text-lg text-zinc-400">
+                By installing the Blockade browser extension, utilizing our command dashboard, or connecting via Private DNS synchronization, you agree to these operational terms.
             </p>
 
-            <section>
-                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">1. Service Tiers & Feature Allocations</h2>
-                <p>
-                    Blockade is offered across distinct subscription tiers:
+            <section class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 sm:p-8">
+                <h2 class="text-lg font-semibold text-white tracking-tight mb-3">1. Service Tiers & Feature Allocations</h2>
+                <p class="text-sm leading-relaxed">
+                    Blockade is provided under two primary functional tiers:
                 </p>
-                <ul class="list-disc pl-5 mt-2 space-y-2 text-zinc-400">
+                <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-zinc-400">
                     <li>
-                        <strong>Free Pass:</strong> Allows you to block up to 2 active domains, set up to 2 automated focus schedules, and utilize 2-minute temporary bypass sessions.
+                        <strong>Free Pass:</strong> Provides up to 2 domain block rules, up to 2 recurring focus schedules, and a fixed 2-minute temporary access bypass window operating locally within your Chrome browser.
                     </li>
                     <li>
-                        <strong>Pro Pass (Trial & Paid):</strong> Expands capacity up to 20 domains, 20 automated focus schedules, extended bypass windows (5 & 15 minutes), and multi-device DNS protection profiles.
+                        <strong>Pro Pass (14-Day Free Trial, 6-Month Pass & 12-Month Annual Pass):</strong> Unlocks up to 50 domain/subdomain rules with custom categories, up to 10 automated focus schedules, extended temporary access windows (15, 30, and 60 minutes), and cross-platform Private DNS protection across Android, iOS, Windows, macOS, and ChromeOS.
                     </li>
                 </ul>
-                <p class="mt-3">
-                    Subscription status is authenticated through secure cloud infrastructure. Attempting to reverse engineer, bypass tier checks, modify local extension code to unlock restricted features, or redistribute the software without authorization is strictly prohibited.
+                <p class="mt-4 text-sm text-zinc-400">
+                    <strong>Infrastructure Retention upon Plan Expiry:</strong> Dedicated Private DNS profiles and server-synchronized schedule allocations are reserved exclusively for active Pro Pass accounts. Upon plan expiration or non-renewal, external DNS filtering endpoints are deactivated immediately. If an account remains inactive for more than 7 days following expiration, the remote Private DNS container and server-synced rule tables are automatically purged to release infrastructure resources. Local browser rules remain under your manual control.
+                </p>
+                <p class="mt-3 text-sm text-zinc-400">
+                    Attempting to reverse engineer, tamper with client-side verification parameters, or redistribute modified extension binaries is strictly prohibited.
                 </p>
             </section>
 
-            <section>
-                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">2. DNS Protection & Network Limitations</h2>
-                <p>
-                    The Multi-Device Protection Hub utilizes domain name resolution (DNS) filtering. While this blocks access across most apps and browsers, certain third-party native apps use hardcoded IP addresses or internal resolvers that bypass external DNS. Blockade cannot intercept connections that do not use standard DNS lookups.
+            <section class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 sm:p-8">
+                <h2 class="text-lg font-semibold text-white tracking-tight mb-3">2. DNS Protection & Network Limitations</h2>
+                <p class="text-sm leading-relaxed">
+                    The Multi-Device Protection Hub operates by intercepting domain resolution lookups via secure Private DNS. While this blocks target endpoints across modern mobile and desktop operating systems, certain applications that utilize hardcoded IP addresses or proprietary DNS-over-HTTPS resolvers may bypass external DNS filtering. Blockade cannot block connections that circumvent standard system DNS resolution.
                 </p>
             </section>
 
-            <section>
-                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">3. Refund Policy</h2>
-                <p>
-                    We want you to be confident in your decision to build better digital focus. If Blockade does not meet your workflow requirements, you may request a full refund within <strong>7 days of purchase</strong> by emailing <a href="mailto:blockade.support@proappkart.com" class="text-brand-cyan underline">blockade.support@proappkart.com</a>. Refunds are processed through our merchant payment gateways and typically take 5–10 business days to reflect on your statement.
+            <section class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 sm:p-8">
+                <h2 class="text-lg font-semibold text-white tracking-tight mb-3">3. Refund Policy</h2>
+                <p class="text-sm leading-relaxed">
+                    We want you to build sustainable focus habits with confidence. If Blockade does not fit your workflow, you may request a full refund within <strong>7 days of purchase</strong> by emailing <a href="mailto:blockade.support@proappkart.com" class="text-brand-cyan underline">blockade.support@proappkart.com</a>. Approved refunds are processed via our merchant of record (Dodo Payments) and typically settle within 5–10 business days.
                 </p>
             </section>
 
-            <section>
-                <h2 class="text-xl font-semibold text-white tracking-tight mb-3">4. Disclaimer of Liability</h2>
-                <p>
-                    Blockade is a self-directed productivity tool designed to help you enforce self-discipline. You remain entirely responsible for the domains you block, the focus schedules you establish, and the deliberate bypass challenge phrases you enter. Proappkart Technologies Inc. shall not be held liable for any missed deadlines, financial losses, work interruptions, or data delays arising from your use of domain blocks, scheduled lockouts, or temporary bypass windows.
+            <section class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 sm:p-8">
+                <h2 class="text-lg font-semibold text-white tracking-tight mb-3">4. System Liability & Operation Disclaimer</h2>
+                <p class="text-sm leading-relaxed">
+                    Proappkart Blockade operates as a localized barrier within the client browser (for offline/free usage) and connects via secure cloud synchronization and encrypted Private DNS endpoints for authenticated Pro tiers. All blocking rules, focus schedules, and temporary bypass phrases are established and managed under user discretion. Proappkart Technologies Inc. assumes no liability for unintended domain blocks, workplace scheduling conflicts, productivity variances, missed deadlines, business disruptions, lost data, or external applications utilizing hardcoded resolvers that bypass system DNS resulting from user-configured domain locks or temporary access windows.
                 </p>
             </section>
+			
+			<section class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 sm:p-8">
+				<h2 class="text-lg font-semibold text-white tracking-tight mb-3">5. Limitation of Liability &amp; Disclaimers</h2>
+				<p class="text-sm leading-relaxed text-zinc-300 mb-3">
+					<strong>Free Pass &amp; Trial Usage:</strong> The Free Pass tier and trial periods are provided strictly on an <em>"as-is"</em> and <em>"as-available"</em> basis without warranties of any kind. Proappkart Technologies Inc. carries zero financial liability and provides no monetary remedies, damages, or claims for users operating on the Free Pass tier.
+				</p>
+				<p class="text-sm leading-relaxed text-zinc-300 mb-3">
+					<strong>Paid Pro Passes &amp; Pro-Rata Remedy:</strong> Blockade utilizes third-party infrastructure providers (including cloud databases and encrypted DNS routing networks) to deliver multi-device synchronization and filtering features. In the event of a permanent service discontinuation, significant upstream platform shutdown, or prolonged failure of core infrastructure, <strong>the maximum collective liability of Proappkart Technologies Inc. shall not exceed the pro-rata monetary value of the unused duration remaining on the customer's active paid pass term</strong> (calculated strictly from the date of service cessation to the scheduled pass expiration date).
+				</p>
+				<p class="text-sm leading-relaxed text-zinc-300 mb-3">
+					Proappkart Technologies Inc. assumes no liability for indirect, incidental, punitive, or consequential damages—including lost profits, lost data, productivity variances, missed workplace deadlines, or application-level connection failures resulting from hardcoded IP routing or system configuration conflicts.
+				</p>
+			</section>
         </div>
     </main>
 
-    <!-- Minimal Footer -->
-    <footer class="border-t border-zinc-900 bg-zinc-950 text-zinc-600 text-xs py-8 text-center">
-        © 2026 Proappkart Technologies Inc. All structural rights reserved.
+    <!-- Professional Footer -->
+    <footer class="border-t border-zinc-900 bg-zinc-950 text-zinc-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-2">
+                <span class="font-semibold text-zinc-400 tracking-tight">Proappkart Portal</span>
+                <span class="text-zinc-700">|</span>
+                <span>© 2026 Proappkart Technologies Inc. All structural rights reserved.</span>
+            </div>
+            
+            <div class="flex items-center space-x-6 text-zinc-600">
+                <a href="privacy.html" class="hover:text-zinc-400 transition-colors">Privacy Policy</a>
+                <span>Enterprise Framework Utilities</span>
+            </div>
+        </div>
     </footer>
 
 </body>
