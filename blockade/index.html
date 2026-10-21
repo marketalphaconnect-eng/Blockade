@@ -18,9 +18,7 @@
                         },
                         brand: {
                             crimson: '#DC3545',
-                            crimsonHover: '#BB2D3B',
-                            amberYellow: '#FFC107',
-                            amberYellowHover: '#E0A800'
+                            crimsonHover: '#BB2D3B'
                         }
                     },
                     fontFamily: {
@@ -34,35 +32,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-    </style>
 </head>
-<body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-[#06b6d4] selection:text-black relative">
-
-    <!-- Global Staging Toast Notification Banner -->
-    <div id="staging-toast" class="fixed top-0 left-0 right-0 z-[100] transform -translate-y-full transition-transform duration-500 ease-out pointer-events-none">
-        <div class="max-w-md mx-auto mt-6 px-4">
-            <div class="bg-zinc-900 border-2 border-[#06b6d4] rounded-xl p-4 shadow-2xl shadow-[#06b6d4]/20 flex items-start space-x-3 pointer-events-auto">
-                <div class="p-1.5 bg-[#06b6d4]/10 rounded-lg text-[#06b6d4] flex-shrink-0">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                </div>
-                <div class="flex-1">
-                    <h4 class="text-sm font-semibold text-white">Work in Progress</h4>
-                    <p class="mt-1 text-xs text-zinc-400 leading-relaxed">
-                        Blockade is currently undergoing final optimization parameters under the Proappkart utility suite. We are finalizing deployments and will be completely live soon.
-                    </p>
-                </div>
-                <button onclick="closeToast()" class="text-zinc-500 hover:text-zinc-300 transition-colors">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-        </div>
-    </div>
+<body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-[#06b6d4] selection:text-black relative font-sans">
 
     <!-- Corporate Navigation Bar Aligned with Master Portfolio -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-zinc-950/90 border-b border-zinc-800/60 transition-all duration-300">
@@ -175,7 +146,7 @@
                             </iframe>
                         </div>
                         <div class="mt-4 text-center md:text-left px-2">
-                            <span class="text-[10px] font-bold uppercase tracking-wider text-[#06b6d4] bg-[#06b6d4]/10 px-2 py-0.5 rounded border border-[#06b6d4]/20">Flagship Guide</span>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-[#06b6d4] bg-[#06b6d4]/10 border border-[#06b6d4]/20 px-2 py-0.5 rounded">Flagship Guide</span>
                             <h3 class="text-lg font-semibold text-white mt-2">Blockade Interactive Subsystem Walkthrough</h3>
                             <p class="text-sm text-zinc-400 mt-1 font-light leading-relaxed">Watch a comprehensive walkthrough demonstration exploring rule categorization, recurring focus schedules, intentional typing challenges, and cross-device DNS configuration.</p>
                         </div>
@@ -190,7 +161,7 @@
                 <div class="text-center max-w-2xl mx-auto mb-16">
                     <span class="text-xs font-bold uppercase tracking-widest text-[#06b6d4] bg-[#06b6d4]/10 border border-[#06b6d4]/20 px-3 py-1 rounded-full">Practical Deployments</span>
                     <h2 class="text-3xl font-bold tracking-tight text-white mt-3">Built for Where Focus Falters Most.</h2>
-                    <p class="mt-3 text-sm text-zinc-400 font-light leading-relaxed">Whether safeguarding solitary deep-work blocks or securing a teen's smartphone, Blockade enforces calm, quiet boundaries.</p>
+                    <p class="mt-3 text-sm text-zinc-400 font-light leading-relaxed">Whether safeguarding solitary deep-work blocks or securing your child's smartphone, Blockade enforces calm, quiet boundaries.</p>
                 </div>
                 
                 <!-- 3-Column Scenario Grid -->
@@ -673,7 +644,6 @@
 
     <!-- Operational JavaScript Operations Block -->
     <script>
-        let toastTimeout;
         let prefilledEmail = "";
         
         // Auto-scroll fix and robust email extraction (handles query string AND hash parameters)
@@ -700,19 +670,6 @@
                 }
             }
         });
-
-        // Staging Banner Management
-        function triggerStagingAlert(event) {
-            event.preventDefault();
-            const toast = document.getElementById('staging-toast');
-            toast.classList.remove('-translate-y-full');
-            clearTimeout(toastTimeout);
-            toastTimeout = setTimeout(() => { closeToast(); }, 7000);
-        }
-
-        function closeToast() {
-            document.getElementById('staging-toast').classList.add('-translate-y-full');
-        }
 
         // Checkout Modal Logic
         function startCheckout(planKey) {
