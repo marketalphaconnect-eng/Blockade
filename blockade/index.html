@@ -509,11 +509,11 @@
                                     </button>
                                 </div>
 
-                                <!-- Annual Plan Option -->
+                                <!-- Lifetime Plan Option -->
                                 <div class="p-4 bg-zinc-950 border border-[#06b6d4]/40 rounded-xl flex flex-col justify-between hover:border-[#06b6d4] transition-colors relative">
                                     <div>
                                         <div class="flex items-center justify-between">
-                                            <span class="text-xs text-zinc-400 font-medium">Annual Pass</span>
+                                            <span class="text-xs text-zinc-400 font-medium">Lifetime Pass</span>
                                             <div class="flex items-center gap-1.5">
                                                 <span class="text-[9px] font-bold text-emerald-400 bg-emerald-400/10 border border-emerald-400/30 px-1.5 py-0.5 rounded">20% OFF</span>
                                                 <span class="text-[9px] font-bold text-[#06b6d4] bg-[#06b6d4]/10 border border-[#06b6d4]/30 px-1.5 py-0.5 rounded">Popular</span>
@@ -526,7 +526,7 @@
                                         </div>
                                     </div>
                                     <button onclick="startCheckout('lifetime_pass')" class="mt-4 w-full py-2.5 px-3 text-xs font-bold text-black bg-[#06b6d4] hover:bg-[#0891b2] rounded-lg transition-colors shadow-lg cursor-pointer">
-                                        Get Annual Pass
+                                        Get Lifetime Pass
                                     </button>
                                 </div>
                             </div>
@@ -694,7 +694,7 @@
             selectedPlanInput.value = planKey;
             planTitle.textContent = planKey === '6month_pass' 
                 ? 'Upgrade to 6-Month Pass ($20 / 6 mos)' 
-                : 'Upgrade to Annual Pass ($36 / yr)';
+                : 'Upgrade to LifeTime Pass ($36 / yr)';
 
             if (prefilledEmail) {
                 emailInput.value = prefilledEmail;
