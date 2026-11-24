@@ -522,7 +522,7 @@
                                         <div class="flex items-baseline gap-2 mt-1.5">
                                             <span class="text-2xl font-bold text-white">$36</span>
                                             <span class="text-sm text-zinc-500 line-through font-medium">$45</span>
-                                            <span class="text-xs text-zinc-500">/ billed yearly</span>
+                                            <span class="text-xs text-zinc-500">One-Time</span>
                                         </div>
                                     </div>
                                     <button onclick="startCheckout('lifetime_pass')" class="mt-4 w-full py-2.5 px-3 text-xs font-bold text-black bg-[#06b6d4] hover:bg-[#0891b2] rounded-lg transition-colors shadow-lg cursor-pointer">
@@ -694,7 +694,7 @@
             selectedPlanInput.value = planKey;
             planTitle.textContent = planKey === '6month_pass' 
                 ? 'Upgrade to 6-Month Pass ($20 / 6 mos)' 
-                : 'Upgrade to LifeTime Pass ($36 / yr)';
+                : 'Upgrade to LifeTime Pass ($36 One-Time)';
 
             if (prefilledEmail) {
                 emailInput.value = prefilledEmail;
