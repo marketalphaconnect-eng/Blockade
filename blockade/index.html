@@ -525,7 +525,7 @@
                                             <span class="text-xs text-zinc-500">/ billed yearly</span>
                                         </div>
                                     </div>
-                                    <button onclick="startCheckout('annual_pass')" class="mt-4 w-full py-2.5 px-3 text-xs font-bold text-black bg-[#06b6d4] hover:bg-[#0891b2] rounded-lg transition-colors shadow-lg cursor-pointer">
+                                    <button onclick="startCheckout('lifetime_pass')" class="mt-4 w-full py-2.5 px-3 text-xs font-bold text-black bg-[#06b6d4] hover:bg-[#0891b2] rounded-lg transition-colors shadow-lg cursor-pointer">
                                         Get Annual Pass
                                     </button>
                                 </div>
@@ -730,9 +730,9 @@
             const returnPage = encodeURIComponent("https://proappkart.com/blockade/welcome.html");
 
             const dodoCheckoutUrls = {
-              '6month_pass': `https://checkout.dodopayments.com/buy/pdt_0NoMy5BULMnqAZEseyY23?quantity=1&email=${encodeURIComponent(email)}&redirect_url=${returnPage}&return_url=${returnPage}`,
-              'annual_pass': `https://checkout.dodopayments.com/buy/pdt_0NoMy4KNzF8AHECJa1DhE?quantity=1&email=${encodeURIComponent(email)}&redirect_url=${returnPage}&return_url=${returnPage}`
-            };
+			  '6month_pass': `https://test.checkout.dodopayments.com/buy/pdt_0NlIWuKq1Pa0iRgECZznt?quantity=1&email=${encodeURIComponent(email)}&redirect_url=${returnPage}&return_url=${returnPage}`,
+			  'lifetime_pass': `https://test.checkout.dodopayments.com/buy/pdt_0NixRJmsrTwPj3i5WhwMA?quantity=1&email=${encodeURIComponent(email)}&redirect_url=${returnPage}&return_url=${returnPage}`
+			};
 
             const targetUrl = dodoCheckoutUrls[planKey];
             if (targetUrl) {
