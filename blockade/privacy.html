@@ -1,3 +1,4 @@
+<!-- Privacy page -->
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -84,70 +85,73 @@
                 Transparency First
             </div>
             <h1 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Privacy Policy</h1>
-            <p class="mt-2 text-sm text-zinc-400">Version 1.0 <span class="mx-1 text-zinc-600">•</span> Last updated: 27th August 2026</p>
+            <p class="mt-2 text-sm text-zinc-400">Version 3.0 <span class="mx-1 text-zinc-600">•</span> Last updated: 26th November 2026</p>
         </div>
 
         <div class="space-y-10 text-zinc-300 font-light leading-relaxed">
             <p class="text-base sm:text-lg text-zinc-400">
-                Blockade is engineered to help you conquer digital distraction—not to monitor your activity or monetize your personal information. We adhere to strict zero-tracking standards. Below is a transparent breakdown of what information is handled and how your privacy is protected.
+                Blockade is engineered to help you conquer digital distraction—not to monitor your activity or monetize your personal information. We adhere to strict local-first and zero-tracking standards. Below is a transparent breakdown of what information is handled and how your privacy is protected.
             </p>
 
             <section class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 sm:p-8">
-                <h2 class="text-lg font-semibold text-white tracking-tight mb-3">1. Account Authentication & Multi-Device Sync</h2>
+                <h2 class="text-lg font-semibold text-white tracking-tight mb-3">1. Account Authentication &amp; License Verification</h2>
                 <p class="text-sm leading-relaxed">
-                    When you authenticate using <strong>Google Sign-In</strong> or an <strong>Email Verification Code (OTP)</strong>, we store only your email address and an encrypted session token. This is used strictly to identify your account, verify your license tier (<code class="text-xs text-[#06b6d4] bg-zinc-950 border border-zinc-800 px-1.5 py-0.5 rounded font-mono">14 DAY FREE PASS</code>, <code class="text-xs text-[#06b6d4] bg-zinc-950 border border-zinc-800 px-1.5 py-0.5 rounded font-mono">6 MONTH PASS</code>, or <code class="text-xs text-[#06b6d4] bg-zinc-950 border border-zinc-800 px-1.5 py-0.5 rounded font-mono">ANNUAL PASS</code>), and sync your custom block rules and focus schedules across your devices. We never access passwords, contacts, or external Google profile data.
+                    Blockade works out of the box without requiring an account. When you optionally sign in using <strong>Google Sign-In</strong> or an <strong>Email Verification Code (OTP)</strong>, we store only your email address, internal user identifier, consent version metadata, and an encrypted session token. This is used strictly to identify your account and verify your active license tier (<code class="text-xs text-[#06b6d4] bg-zinc-950 border border-zinc-800 px-1.5 py-0.5 rounded font-mono">14 DAY FREE PASS</code>, <code class="text-xs text-[#06b6d4] bg-zinc-950 border border-zinc-800 px-1.5 py-0.5 rounded font-mono">6 MONTH PASS</code>, or <code class="text-xs text-[#06b6d4] bg-zinc-950 border border-zinc-800 px-1.5 py-0.5 rounded font-mono">LIFETIME PASS</code>). We never access passwords, contacts, or external Google profile data.
                 </p>
             </section>
 
             <section class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 sm:p-8">
-                <h2 class="text-lg font-semibold text-white tracking-tight mb-3">2. Web Browsing & Local Tab Permissions</h2>
+                <h2 class="text-lg font-semibold text-white tracking-tight mb-3">2. Web Browsing, Local Tab Permissions &amp; Shorts Blocker</h2>
                 <p class="text-sm leading-relaxed">
                     Blockade <strong>never tracks, logs, records, or sells your browsing history</strong>. 
                 </p>
                 <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-zinc-400">
                     <li>
-                        <strong>Tab Access (<code class="text-xs text-brand-cyan bg-zinc-950 border border-zinc-800 px-1.5 py-0.5 rounded font-mono">"tabs"</code>):</strong> Used exclusively within your local browser runtime to detect when an active tab matches a rule on your blocklist and redirect it to the intervention screen.
+                        <strong>Tab Access (<code class="text-xs text-brand-cyan bg-zinc-950 border border-zinc-800 px-1.5 py-0.5 rounded font-mono">"tabs"</code>):</strong> Used exclusively within your local browser runtime to detect when an open or background tab matches a domain on your blocklist and redirect it to the Blockade intervention screen.
                     </li>
                     <li>
-                        <strong>Declarative Net Request Engine:</strong> Chrome's local filtering engine handles network matching directly on your machine. Page content, form inputs, passwords, keystrokes, and text inside websites are never read or transmitted.
+                        <strong>Declarative Net Request Engine:</strong> Chrome's local filtering engine handles network-level domain and short-form route matching directly on your machine. Page content, form inputs, passwords, and keystrokes inside websites are never read or transmitted.
+                    </li>
+                    <li>
+                        <strong>Optional Site Permissions for Shorts &amp; Reels Blocker:</strong> Host access for supported platforms (YouTube, Instagram, Facebook, Reddit, LinkedIn, and X) is requested strictly on demand only when you toggle on short-form video blocking for a specific platform. The content script runs locally in your browser to hide short-form shelves and autoplay video feeds without transmitting page data externally.
                     </li>
                 </ul>
             </section>
 
             <section class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 sm:p-8">
-                <h2 class="text-lg font-semibold text-white tracking-tight mb-3">3. Multi-Device Private DNS Network Sync</h2>
+                <h2 class="text-lg font-semibold text-white tracking-tight mb-3">3. Optional Cloud Database Sync (Pro Feature)</h2>
                 <p class="text-sm leading-relaxed">
-                    For Pro users utilizing cross-device protection, domain rules are synchronized to your dedicated, encrypted Private DNS endpoint. This enables filtering across Android, iOS, Windows, macOS, and ChromeOS with zero logs retained. Blockade never inspects or proxies your personal network payload traffic.
+                    By default, all blocked domains, focus schedules, and settings remain stored locally on your device. Pro users may optionally enable <strong>Cloud Database Sync</strong> in Workspace Settings to back up and synchronize their custom domain rules, focus schedules, and extension preferences across browsers. Turning Cloud Database Sync off immediately deletes your synced domain and schedule records from our cloud database while keeping your local browser configuration intact.
                 </p>
             </section>
 
             <section class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 sm:p-8">
-                <h2 class="text-lg font-semibold text-white tracking-tight mb-3">4. Zero Data Selling & Analytics Transparency</h2>
+                <h2 class="text-lg font-semibold text-white tracking-tight mb-3">4. 100% On-Device Analytics &amp; Zero Data Selling</h2>
                 <p class="text-sm leading-relaxed">
-                    We do not use advertising trackers, behavioral scripts, or session recording scrapers. Your blocklists, focus schedule intervals, and bypass timestamps exist exclusively to run your productivity environment.
+                    We do not use third-party advertising trackers, behavioral analytics scripts, or telemetry scrapers. All protection metrics shown in the <strong>Analytics</strong> tab (short videos hidden, blocked navigation attempts, bypass duration, and hardening score) are computed and stored <strong>100% locally on your device</strong>—zero analytics counters are ever sent to our servers, and you can reset them at any time.
                 </p>
             </section>
 
             <section class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 sm:p-8">
-                <h2 class="text-lg font-semibold text-white tracking-tight mb-3">5. Data Retention, Self-Service Reset & Infrastructure Lifecycle</h2>
+                <h2 class="text-lg font-semibold text-white tracking-tight mb-3">5. Data Retention, Self-Service Reset &amp; Lifecycle Purge</h2>
                 <p class="text-sm leading-relaxed">
                     You have complete sovereignty over your information. We maintain clear data lifecycle standards:
                 </p>
                 <ul class="list-disc pl-5 mt-3 space-y-2 text-sm text-zinc-400">
                     <li>
-                        <strong>Active Usage:</strong> Your custom domain blocklists, focus schedules, and multi-device DNS configurations are securely synced to maintain uninterrupted focus enforcement across your authorized devices.
+                        <strong>Active Cloud Sync Usage:</strong> When Cloud Database Sync is enabled on an active Pro Pass, your domain rules, focus schedules, and workspace preferences are securely stored to keep your browsers synchronized.
                     </li>
                     <li>
-                        <strong>Self-Service Rule Reset:</strong> You can wipe all active domain rules, categories, focus schedules, and remote DNS denylists directly from the Support tab inside the dashboard at any time without terminating your paid subscription or losing remaining pass duration.
+                        <strong>Self-Service Workspace Reset:</strong> You can wipe all active domain rules, categories, and focus schedules directly from the <strong>Settings</strong> tab inside the dashboard at any time (purging both local storage and any cloud backup records) without terminating your paid subscription or losing remaining pass duration.
                     </li>
                     <li>
-                        <strong>License Expiration (Soft Deactivation):</strong> When a paid license expires without renewal, active domain rules on your external Private DNS endpoint are cleared immediately to prevent accidental network blockages, while retaining your configuration schema locally and in your account profile.
+                        <strong>License Expiration (Soft Deactivation):</strong> When a paid pass expires without renewal, Pro-only features revert gracefully to the Free Pass tier while preserving your local blocklists and schedules on your device.
                     </li>
                     <li>
-                        <strong>Infrastructure Purge (Hard Deletion):</strong> Following an expiration grace period of 7 days, linked server-side blocklists, focus schedules, and remote Private DNS profile containers are permanently erased from cloud infrastructure to reclaim system resources. Your core account profile and license history remain on file to allow seamless re-activation and receipt access.
+                        <strong>Infrastructure Purge (Hard Deletion after 7-Day Grace Period):</strong> Following an expiration grace period of 7 days without renewal, server-side synced domain lists and focus schedules are permanently erased from cloud infrastructure and Cloud Database Sync is reset to off. Your core account identity and license receipt history remain on file for seamless re-activation.
                     </li>
                     <li>
-                        <strong>Permanent Account Deletion (Right to Erasure):</strong> Upon receiving an explicit deletion request via email to <a href="mailto:blockade.support@proappkart.com" class="text-brand-cyan underline">blockade.support@proappkart.com</a>, we perform a complete hard purge—permanently deleting your authentication identity, license ledger, workspace rules, focus schedules, and remote DNS containers.
+                        <strong>Permanent Account Deletion (Right to Erasure):</strong> Upon receiving an explicit deletion request via email to <a href="mailto:blockade.support@proappkart.com" class="text-brand-cyan underline">blockade.support@proappkart.com</a>, we perform a complete hard purge—permanently deleting your authentication identity, license records, settings, and any remaining cloud data.
                     </li>
                 </ul>
             </section>
